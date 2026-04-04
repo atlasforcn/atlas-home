@@ -6,6 +6,7 @@ body {
     line-height: 1.6;
     background-color: #f4f4f4;
     color: #333;
+    padding-top: 70px; /* 為固定頂部導航欄留出空間，大約導航欄的高度 */
 }
 
 header {
@@ -13,6 +14,10 @@ header {
     color: #fff;
     padding: 1rem 0;
     text-align: center;
+    position: fixed; /* 固定定位 */
+    top: 0; /* 位於頂部 */
+    width: 100%; /* 佔滿整個寬度 */
+    z-index: 1000; /* 確保在其他內容之上 */
 }
 
 header nav ul {
@@ -140,6 +145,18 @@ h1, h2, h3 {
     font-size: 0.9em;
 }
 
+.main-content-flex {
+    display: flex;
+    flex-wrap: wrap; /* 允許換行 */
+    gap: 20px; /* 區塊間距 */
+    max-width: 960px;
+    margin: 20px auto; /* 居中並留出上下邊距 */
+}
+
+.main-content-flex > section {
+    flex: 1; /* 讓子元素平均分配空間 */
+    min-width: 300px; /* 最小寬度，防止在小螢幕下過窄 */
+}
 
 /* Styles for Introduction Section */
 .hero {
@@ -214,6 +231,15 @@ h1, h2, h3 {
     .social-links a {
         font-size: 1em;
     }
+
+    .main-content-flex {
+        flex-direction: column; /* 小螢幕下垂直堆疊 */
+        gap: 0; /* 移除垂直堆疊時的間距 */
+    }
+
+    .main-content-flex > section {
+        min-width: unset; /* 移除最小寬度限制 */
+    }
 }
 
 /* responsive design for resume page (already included, but ensuring consistency) */
@@ -227,4 +253,87 @@ h1, h2, h3 {
         flex-direction: column;
     }
 }
+/* Styles for Markdown Content */
+#blog-post-content {
+    background-color: #fff;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 960px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
 
+#blog-post-content h1, #blog-post-content h2, #blog-post-content h3,
+#blog-post-content h4, #blog-post-content h5, #blog-post-content h6 {
+    color: #333;
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+}
+
+#blog-post-content p {
+    line-height: 1.8;
+    margin-bottom: 1em;
+}
+
+#blog-post-content ul, #blog-post-content ol {
+    margin-left: 20px;
+    margin-bottom: 1em;
+}
+
+#blog-post-content li {
+    margin-bottom: 0.5em;
+}
+
+#blog-post-content pre {
+    background-color: #eee;
+    padding: 10px;
+    border-radius: 5px;
+    overflow-x: auto;
+    margin-bottom: 1em;
+}
+
+#blog-post-content code {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #e0e0e0;
+    padding: 2px 4px;
+    border-radius: 3px;
+}
+
+#blog-post-content pre code {
+    background-color: transparent;
+    padding: 0;
+}
+
+#blog-post-content blockquote {
+    border-left: 4px solid #ccc;
+    padding-left: 10px;
+    color: #666;
+    margin-left: 0;
+    margin-bottom: 1em;
+}
+
+/* 摘要與日期（首頁列表） */
+.blog-posts .post-date,
+.blog-posts .post-excerpt {
+    font-size: 0.95em;
+    color: #555;
+    margin-top: 0.25rem;
+    margin-bottom: 0.75rem;
+    display: block;
+}
+
+.blog-posts .blog-error {
+    color: #a94442;
+    background: #fdf7f7;
+    border: 1px solid #ebccd1;
+    border-radius: 6px;
+    padding: 12px 14px;
+    line-height: 1.5;
+}
+
+.blog-posts .blog-error code {
+    font-size: 0.9em;
+    background: #fff;
+    padding: 2px 6px;
+    border-radius: 4px;
+}

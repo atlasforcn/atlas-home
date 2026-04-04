@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>部落格文章 2</title>
+    <title>部落格文章</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
@@ -20,16 +20,17 @@
     </header>
 
     <main>
-        <section>
-            <h1>部落格文章標題 2</h1>
-            <p>這是第二篇部落格文章的內容。您可以在這裡撰寫您的想法、經驗或任何您想分享的內容。</p>
-            <p>文章的詳細內容將會在這裡呈現。</p>
-            <p><a href="/atlas-home/#blog">返回部落格</a></p>
+        <section id="blog-post-content">
+            <!-- Markdown 內容將會被載入到這裡 -->
+            <h1 id="post-title"></h1>
+            <div id="post-body"></div>
         </section>
     </main>
 
     <footer>
         <p>&copy; 2026 我的個人網站. All rights reserved.</p>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
