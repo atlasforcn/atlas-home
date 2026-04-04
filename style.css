@@ -1,0 +1,230 @@
+/* basic styles for personal website */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header {
+    background: #333;
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+header nav ul {
+    padding: 0;
+    list-style: none;
+}
+
+header nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+main {
+    padding: 20px;
+    max-width: 960px;
+    margin: auto;
+}
+
+section {
+    background: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+h1, h2, h3 {
+    color: #333;
+}
+
+.blog-posts article {
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.blog-posts article:last-child {
+    border-bottom: none;
+}
+
+
+/* Styles for Resume Page */
+.resume-main {
+    padding: 20px;
+    max-width: 960px;
+    margin: auto;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.resume-section {
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.resume-section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.resume-title {
+    text-align: center;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.resume-contact {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 0.9em;
+    color: #666;
+}
+
+.resume-contact a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.job-entry, .education-entry {
+    margin-bottom: 20px;
+}
+
+.job-entry h3, .education-entry h3 {
+    margin-top: 0;
+    margin-bottom: 5px;
+    color: #007bff;
+}
+
+.job-date, .education-date {
+    font-size: 0.9em;
+    color: #666;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.job-entry ul {
+    list-style-type: disc;
+    margin-left: 20px;
+    padding-left: 0;
+}
+
+.job-entry ul li {
+    margin-bottom: 5px;
+}
+
+.skills-list {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.skills-list li {
+    background-color: #e9e9e9;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.9em;
+}
+
+
+/* Styles for Introduction Section */
+.hero {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #f8f9fa;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.05);
+}
+
+.hero .profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+    border: 3px solid #007bff;
+}
+
+.hero h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.hero .subtitle {
+    font-size: 1.2em;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    max-width: 700px;
+    margin: 0 auto 30px auto;
+    line-height: 1.8;
+}
+
+.social-links a {
+    display: inline-block;
+    margin: 0 10px;
+    color: #007bff;
+    text-decoration: none;
+    font-size: 1.2em;
+}
+
+.social-links a:hover {
+    text-decoration: underline;
+}
+
+/* responsive design for general layout */
+@media (max-width: 768px) {
+    header nav ul {
+        flex-direction: column;
+    }
+
+    header nav ul li {
+        margin: 5px 0;
+    }
+
+    main {
+        padding: 10px;
+    }
+
+    .hero h1 {
+        font-size: 2em;
+    }
+
+    .hero .subtitle {
+        font-size: 1em;
+    }
+
+    .social-links a {
+        font-size: 1em;
+    }
+}
+
+/* responsive design for resume page (already included, but ensuring consistency) */
+@media (max-width: 768px) {
+    .resume-main {
+        margin: 10px;
+        padding: 15px;
+    }
+
+    .skills-list {
+        flex-direction: column;
+    }
+}
+
