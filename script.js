@@ -15,7 +15,12 @@ document.querySelectorAll('nav a').forEach(anchor => {
             if (path === currentPath || (path === baseUrl || path === '/') && currentPath === baseUrl) {
                 e.preventDefault();
                 if (targetHash !== '') {
-                    const targetElement = document.querySelector(targetHash);
+                    if ((targetHash === '#resume' || targetHash === '#blog') && typeof switchProfileTab === 'function') {
+                        switchProfileTab(targetHash.slice(1), false);
+                    }
+                    const targetElement = targetHash === '#resume' || targetHash === '#blog'
+                        ? document.getElementById('profile-tabs')
+                        : document.querySelector(targetHash);
                     if (targetElement) {
                         targetElement.scrollIntoView({
                             behavior: 'smooth'
@@ -393,63 +398,23 @@ async function loadTimelineMultiTrack() {
             return;
         }
 
-        const yearNumbersStart = events
-            .map(e => (typeof e.startYear === 'number' ? e.startYear : null))
-            .filter(v => v !== null);
-        const yearNumbersEnd = events
-            .map(e => {
-                if (typeof e.endYear === 'number') return e.endYear;
-                return typeof e.startYear === 'number' ? e.startYear : null;
-            })
-            .filter(v => v !== null);
-
-        const YEAR_START = Math.min(...yearNumbersStart);
-        const YEAR_MAX = Math.max(...yearNumbersEnd);
-        const YEAR_END = YEAR_MAX + 1;
-        const SPAN = YEAR_END - YEAR_START;
-        if (!Number.isFinite(SPAN) || SPAN <= 0) throw new Error('Invalid year range');
-
-        function pct(y) {
-            return ((y - YEAR_START) / SPAN * 100).toFixed(4) + '%';
-        }
-
         const TRACKS = [
-            { id: 'achievement', label: '入選／里程碑', color: '#2f6f5e', colorVar: 'var(--tl-c-achievement)' },
-            { id: 'project', label: '專案／工作', color: '#2f5f9e', colorVar: 'var(--tl-c-project)' },
-            { id: 'job', label: '職涯／管理', color: '#6b5ca5', colorVar: 'var(--tl-c-job)' },
-            { id: 'public_service', label: '公部門／訓練', color: '#b26a3c', colorVar: 'var(--tl-c-public_service)' },
-            { id: 'community', label: '社群／協力', color: '#7a8f2a', colorVar: 'var(--tl-c-community)' },
+            { id: 'achievement', label: '入選／里程碑', color: '#2f6f5e' },
+            { id: 'project', label: '專案／工作', color: '#2f5f9e' },
+            { id: 'job', label: '職涯／管理', color: '#6b5ca5' },
+            { id: 'public_service', label: '公部門／訓練', color: '#b26a3c' },
+            { id: 'community', label: '社群／協力', color: '#6f8529' },
         ];
 
         const TRACK_BY_ID = {};
         TRACKS.forEach(t => { TRACK_BY_ID[t.id] = t; });
 
-        // Tooltip
-        const tt = document.createElement('div');
-        tt.className = 'tl-tooltip';
-        root.appendChild(tt);
-
-        // Year axis
-        const yearRow = document.createElement('div');
-        yearRow.className = 'tl-year-row';
-        TRACKS; // keep reference
-        for (let y = YEAR_START; y <= YEAR_END; y++) {
-            const c = document.createElement('div');
-            c.className = 'tl-year-cell';
-            c.textContent = y;
-            yearRow.appendChild(c);
-        }
-        root.appendChild(yearRow);
-
-        // Decide shape
-        function shapeOf(e) {
-            const hasEnd = typeof e.endYear === 'number';
-            if (hasEnd) return 'bar';
-            const when = (e.when || '') + '';
-            if (when.includes('起')) return 'bar';
-            if (typeof e.startMonth === 'number') return 'bar';
-            return 'dot';
-        }
+        const validEvents = events
+            .filter(e => typeof e.startYear === 'number')
+            .map(e => {
+                const category = TRACK_BY_ID[e.category] ? e.category : 'community';
+                return { ...e, category };
+            });
 
         function renderPeriod(e) {
             const sY = e.startYear;
@@ -475,142 +440,148 @@ async function loadTimelineMultiTrack() {
             return start + ' — 至今';
         }
 
+        function escapeHtml(value) {
+            return String(value || '').replace(/[&<>"']/g, ch => ({
+                '&': '&amp;',
+                '<': '&lt;',
+                '>': '&gt;',
+                '"': '&quot;',
+                "'": '&#39;'
+            }[ch]));
+        }
+
         function detailsHtml(e) {
             const details = Array.isArray(e.details) ? e.details : [];
             if (details.length === 0) return '';
-            return '<ul class="tt-list">' + details.map(d => `<li>${d}</li>`).join('') + '</ul>';
+            return '<ul class="tt-list">' + details.map(d => `<li>${escapeHtml(d)}</li>`).join('') + '</ul>';
         }
 
-        function keywordsHtml(e, trackColorHex) {
+        function keywordsHtml(e, trackColorHex, limit = 5) {
             const tags = Array.isArray(e.keywords) ? e.keywords : [];
             if (!tags.length) return '';
-            return `<div class="tt-tags">${tags.slice(0, 6).map(t =>
-                `<span class="tt-tag" style="background:${trackColorHex}22;color:${trackColorHex}">${t}</span>`
+            return `<div class="tt-tags">${tags.slice(0, limit).map(t =>
+                `<span class="tt-tag" style="background:${trackColorHex}22;color:${trackColorHex}">${escapeHtml(t)}</span>`
             ).join('')}</div>`;
         }
 
-        function move(e) {
-            const r = root.getBoundingClientRect();
-            const x = e.clientX - r.left + 14;
-            const y = e.clientY - r.top + 14;
-            tt.style.left = (x + 250 > r.width ? x - 260 : x) + 'px';
-            tt.style.top = y + 'px';
-        }
-
-        function openDetailsPanel(e, track, period) {
-            if (!detailsPanel) return;
-            const title = e.title || '';
-            const summary = e.summary ? `<div class="tt-panel-summary">${e.summary}</div>` : '';
-            const list = detailsHtml(e);
-            detailsPanel.hidden = false;
-            detailsPanel.innerHTML = `
-                <h3 class="tt-panel-title">細節</h3>
-                <div class="tt-panel-meta"><span class="tt-panel-track" style="color:${track.colorVar}">${track.label}</span></div>
-                <div class="tt-panel-headline">${title}</div>
-                <div class="tt-panel-period">${period}</div>
-                ${summary}
-                ${list || '<div class="tt-panel-empty">（尚無補充細節）</div>'}
-            `;
-        }
-
-        // Render tracks
-        TRACKS.forEach(track => {
-            const row = document.createElement('div');
-            row.className = 'tl-row';
-
-            const lbl = document.createElement('div');
-            lbl.className = 'tl-row-label';
-            lbl.textContent = track.label;
-            row.appendChild(lbl);
-
-            const canvas = document.createElement('div');
-            canvas.className = 'tl-canvas';
-
-            const axis = document.createElement('div');
-            axis.className = 'tl-axis';
-            canvas.appendChild(axis);
-
-            const items = events
-                .filter(ev => (ev.category || 'community') === track.id)
-                .slice();
-
-            // sort by startYear then startMonth
-            items.sort((a, b) => {
+        function sortEvents(list) {
+            return list.slice().sort((a, b) => {
                 const ay = typeof a.startYear === 'number' ? a.startYear : 0;
                 const by = typeof b.startYear === 'number' ? b.startYear : 0;
-                if (ay !== by) return ay - by;
+                if (ay !== by) return by - ay;
                 const am = typeof a.startMonth === 'number' ? a.startMonth : 0;
                 const bm = typeof b.startMonth === 'number' ? b.startMonth : 0;
-                return am - bm;
+                return bm - am;
             });
+        }
 
-            items.forEach(ev => {
-                const item = document.createElement('div');
-                item.className = 'tl-item';
-                item.dataset.shape = shapeOf(ev);
-                item.style.left = pct(ev.startYear);
+        const tabs = document.createElement('nav');
+        tabs.className = 'tl-tabs';
+        tabs.setAttribute('aria-label', '時間軸分類');
 
-                const shape = item.dataset.shape;
-                if (shape === 'bar') {
-                    const endY = (typeof ev.endYear === 'number') ? ev.endYear : YEAR_END;
-                    const w = ((endY - ev.startYear) / SPAN * 100).toFixed(4) + '%';
-                    const bar = document.createElement('div');
-                    bar.className = 'tl-bar' + ((typeof ev.endYear !== 'number') ? ' tl-bar-ongoing' : '');
-                    bar.style.cssText = `width:${w}; background:${track.colorVar};`;
-                    item.appendChild(bar);
-                } else {
-                    const dot = document.createElement('div');
-                    dot.className = 'tl-dot';
-                    dot.style.cssText = `background:${track.colorVar};`;
-                    item.appendChild(dot);
+        const list = document.createElement('div');
+        list.className = 'tl-list';
+
+        function makeTab(id, label, color, count) {
+            const btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'tl-tab' + (id === 'all' ? ' active' : '');
+            btn.dataset.id = id;
+            btn.innerHTML = `<span>${escapeHtml(label)}</span><span class="tl-tab-count">${count}</span>`;
+            if (color) btn.style.setProperty('--tl-tab-color', color);
+            btn.addEventListener('click', () => setActive(id));
+            tabs.appendChild(btn);
+        }
+
+        function buildCard(ev) {
+            const track = TRACK_BY_ID[ev.category] || TRACK_BY_ID.community;
+            const period = renderPeriod(ev);
+            const article = document.createElement('article');
+            article.className = 'tl-card';
+            article.dataset.category = ev.category;
+            article.style.setProperty('--tl-card-color', track.color);
+
+            const details = detailsHtml(ev);
+            const summary = ev.summary ? `<p class="tl-card-summary">${escapeHtml(ev.summary)}</p>` : '';
+            const tags = keywordsHtml(ev, track.color, 4);
+            article.innerHTML = `
+                <div class="tl-card-marker" aria-hidden="true"></div>
+                <div class="tl-card-body">
+                    <div class="tl-card-meta">
+                        <span class="tl-card-period">${escapeHtml(period)}</span>
+                        <span class="tl-card-chip">${escapeHtml(track.label)}</span>
+                    </div>
+                    <h3 class="tl-card-title">${escapeHtml(ev.title || '')}</h3>
+                    ${summary}
+                    ${tags}
+                    ${details ? `<div class="tl-card-details" hidden>${details}</div>` : ''}
+                    <button class="tl-card-more" type="button" aria-expanded="false">${details ? '展開細節' : '標記重點'}</button>
+                </div>
+            `;
+
+            const button = article.querySelector('.tl-card-more');
+            const detailBlock = article.querySelector('.tl-card-details');
+            button.addEventListener('click', () => {
+                if (!detailBlock) {
+                    article.classList.toggle('is-highlighted');
+                    return;
                 }
-
-                const itemLabel = document.createElement('div');
-                itemLabel.className = 'tl-item-label';
-                itemLabel.textContent = ev.title || '';
-                item.appendChild(itemLabel);
-
-                const period = renderPeriod(ev);
-
-                item.addEventListener('mouseenter', e => {
-                    const keywords = keywordsHtml(ev, track.color);
-                    const body = ev.summary || '';
-                    tt.innerHTML = `
-                        <div class="tt-track" style="color:${track.colorVar}">${track.label}</div>
-                        <div class="tt-title">${ev.title || ''}</div>
-                        <div class="tt-period">${period}</div>
-                        <div class="tt-divider"></div>
-                        <div class="tt-body">${body ? body : ''}${detailsHtml(ev)}</div>
-                        ${keywords}
-                    `;
-                    tt.classList.add('visible');
-                    move(e);
-                });
-
-                item.addEventListener('mousemove', move);
-                item.addEventListener('mouseleave', () => tt.classList.remove('visible'));
-
-                item.addEventListener('click', () => {
-                    openDetailsPanel(ev, track, period);
-                });
-
-                canvas.appendChild(item);
+                const open = detailBlock.hidden;
+                detailBlock.hidden = !open;
+                button.setAttribute('aria-expanded', open ? 'true' : 'false');
+                button.textContent = open ? '收起細節' : '展開細節';
             });
 
-            row.appendChild(canvas);
-            root.appendChild(row);
-        });
+            return article;
+        }
 
-        // Legend
-        const legend = document.createElement('div');
-        legend.className = 'tl-legend';
-        TRACKS.forEach(t => {
-            const el = document.createElement('div');
-            el.className = 'tl-legend-item';
-            el.innerHTML = `<div class="tl-legend-bar" style="background:${t.colorVar}"></div><span>${t.label}</span>`;
-            legend.appendChild(el);
+        function renderList(activeId = 'all') {
+            const filtered = activeId === 'all'
+                ? validEvents
+                : validEvents.filter(ev => ev.category === activeId);
+
+            const grouped = new Map();
+            sortEvents(filtered).forEach(ev => {
+                const year = ev.startYear;
+                if (!grouped.has(year)) grouped.set(year, []);
+                grouped.get(year).push(ev);
+            });
+
+            list.innerHTML = '';
+            Array.from(grouped.entries()).forEach(([year, yearEvents]) => {
+                const group = document.createElement('section');
+                group.className = 'tl-year-group';
+
+                const yearLabel = document.createElement('div');
+                yearLabel.className = 'tl-year-label';
+                yearLabel.textContent = year;
+                group.appendChild(yearLabel);
+
+                const cards = document.createElement('div');
+                cards.className = 'tl-year-cards';
+                yearEvents.forEach(ev => cards.appendChild(buildCard(ev)));
+                group.appendChild(cards);
+
+                list.appendChild(group);
+            });
+        }
+
+        function setActive(id) {
+            tabs.querySelectorAll('.tl-tab').forEach(btn => {
+                const active = btn.dataset.id === id;
+                btn.classList.toggle('active', active);
+            });
+            renderList(id);
+        }
+
+        makeTab('all', '全部', '', validEvents.length);
+        TRACKS.forEach(track => {
+            const count = validEvents.filter(ev => ev.category === track.id).length;
+            makeTab(track.id, track.label, track.color, count);
         });
-        root.appendChild(legend);
+        renderList('all');
+        root.appendChild(tabs);
+        root.appendChild(list);
     } catch (err) {
         console.error(err);
         root.innerHTML =
@@ -618,8 +589,48 @@ async function loadTimelineMultiTrack() {
     }
 }
 
+function switchProfileTab(panelId, updateHash = true) {
+    const tabsRoot = document.getElementById('profile-tabs');
+    if (!tabsRoot) return;
+
+    const nextPanel = panelId === 'blog' ? 'blog' : 'resume';
+    tabsRoot.querySelectorAll('.profile-tab').forEach(button => {
+        const active = button.dataset.panel === nextPanel;
+        button.classList.toggle('active', active);
+        button.setAttribute('aria-selected', active ? 'true' : 'false');
+    });
+
+    tabsRoot.querySelectorAll('.profile-tab-panel').forEach(panel => {
+        const active = panel.dataset.panel === nextPanel;
+        panel.classList.toggle('active', active);
+        panel.hidden = !active;
+    });
+
+    if (updateHash) {
+        history.replaceState(null, '', '#' + nextPanel);
+    }
+}
+
+function initProfileTabs() {
+    const tabsRoot = document.getElementById('profile-tabs');
+    if (!tabsRoot) return;
+
+    tabsRoot.querySelectorAll('.profile-tab').forEach(button => {
+        button.addEventListener('click', () => {
+            switchProfileTab(button.dataset.panel);
+        });
+    });
+
+    if (window.location.hash === '#blog') {
+        switchProfileTab('blog', false);
+    } else {
+        switchProfileTab('resume', false);
+    }
+}
+
 // Initialize based on the current page
 document.addEventListener('DOMContentLoaded', () => {
+    initProfileTabs();
     if (document.getElementById('post-body')) {
         displayBlogPost();
     }

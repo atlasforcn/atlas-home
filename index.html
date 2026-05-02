@@ -12,9 +12,8 @@
         <nav>
             <ul>
                 <li><a href="#intro">簡介</a></li>
-                <li><a href="#blog">部落格</a></li>
-                <li><a href="#timeline">時間軸</a></li>
                 <li><a href="#resume">履歷</a></li>
+                <li><a href="#blog">部落格</a></li>
                 <li><a href="https://github.com/atlasforcn/atlas-home" target="_blank">GitHub</a></li>
             </ul>
         </nav>
@@ -23,10 +22,10 @@
     <main>
         <section id="intro" class="hero">
             <div class="container">
-                <img src="https://via.placeholder.com/150" alt="個人頭像" class="profile-pic">
-                <h1>您的名字</h1>
-                <p class="subtitle">您的職稱 / 簡短介紹</p>
-                <p>這是一個關於我的簡短介紹。我熱衷於 [您的興趣/領域]，並致力於 [您的目標/專長]。我喜歡學習新技術，並透過程式碼創造價值。</p>
+                <img src="profile_picture.jpg" alt="個人頭像" class="profile-pic">
+                <h1>Atlas You</h1>
+                <p class="subtitle">前國家太空中心立方衛星專案經理 / 與國內外廠商合作，提供管理與技術支援，已有多顆衛星在軌運行。</p>
+                <p>擁有多語言技能與軟體工程、航太工程、大型活動管理經驗。致力於連結世界，著眼星空</p>
                 <div class="social-links">
                     <a href="https://github.com/atlasforcn/atlas-home" target="_blank">GitHub</a>
                     <a href="#" target="_blank">LinkedIn</a>
@@ -35,25 +34,32 @@
             </div>
         </section>
 
-        <div class="main-content-flex">
-            <section id="blog">
-                <h2>我的部落格</h2>
-                <div class="blog-posts">
+        <section id="profile-tabs" class="profile-tabs">
+            <div class="profile-tab-list" role="tablist" aria-label="履歷與部落格">
+                <button class="profile-tab active" type="button" id="tab-resume" role="tab" aria-selected="true" aria-controls="resume-panel" data-panel="resume">
+                    履歷時間軸
+                </button>
+                <button class="profile-tab" type="button" id="tab-blog" role="tab" aria-selected="false" aria-controls="blog-panel" data-panel="blog">
+                    部落格文章
+                </button>
+            </div>
+
+            <div id="resume-panel" class="profile-tab-panel active" role="tabpanel" aria-labelledby="tab-resume" data-panel="resume">
+                <div id="resume" class="resume-timeline">
+                    <h2>我的履歷</h2>
+                    <p class="timeline-lead">按分類篩選經歷；展開卡片查看補充細節。</p>
+                    <div id="timeline-mt" class="timeline-mt"></div>
+                    <div id="timeline-mt-details" class="timeline-mt-details" hidden></div>
                 </div>
-            </section>
+            </div>
 
-            <section id="resume">
-                <h2>我的履歷</h2>
-                <p>這裡將展示我的專業履歷。</p>
-                <a href="resume.html">查看我的履歷</a>
-            </section>
-        </div>
-
-        <section id="timeline">
-            <h2>時間軸</h2>
-            <p class="timeline-lead">滑鼠移到節點查看；點下去在下方展開「細節」（顏色依類別區分）。</p>
-            <div id="timeline-mt" class="timeline-mt"></div>
-            <div id="timeline-mt-details" class="timeline-mt-details" hidden></div>
+            <div id="blog-panel" class="profile-tab-panel" role="tabpanel" aria-labelledby="tab-blog" data-panel="blog" hidden>
+                <div id="blog">
+                    <h2>我的部落格</h2>
+                    <div class="blog-posts">
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
 
