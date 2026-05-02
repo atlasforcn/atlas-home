@@ -10,6 +10,7 @@
     --accent-soft: #e6f3ee;
     --code-bg: #f2efe8;
     --shadow-soft: 0 1px 0 rgba(0, 0, 0, 0.04);
+    --shadow-card: 0 18px 46px rgba(42, 35, 25, 0.06);
     --radius: 16px;
 }
 
@@ -17,7 +18,7 @@ body {
     font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Hiragino Kaku Gothic ProN",
         "Yu Gothic", "Noto Sans JP", "Noto Sans TC", "Segoe UI", Arial, sans-serif;
     margin: 0;
-    line-height: 1.9;
+    line-height: 1.75;
     background-color: var(--bg);
     color: var(--text);
     padding-top: 68px; /* 為固定頂部導航欄留出空間，大約導航欄的高度 */
@@ -26,7 +27,7 @@ body {
 header {
     background: rgba(251, 250, 247, 0.85);
     color: var(--text);
-    padding: 0.9rem 0;
+    padding: 0.75rem 0;
     text-align: center;
     position: fixed; /* 固定定位 */
     top: 0; /* 位於頂部 */
@@ -38,34 +39,43 @@ header {
 
 header nav ul {
     padding: 0;
+    margin: 0;
     list-style: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
 }
 
 header nav ul li {
-    display: inline;
-    margin-right: 20px;
+    display: inline-flex;
 }
 
 header nav ul li a {
+    border-radius: 999px;
     color: var(--text);
+    font-size: 0.94rem;
+    font-weight: 700;
+    line-height: 1;
+    padding: 9px 11px;
     text-decoration: none;
 }
 
 header nav ul li a:hover {
+    background: var(--accent-soft);
     color: var(--accent);
-    text-decoration: underline;
+    text-decoration: none;
 }
 
 main {
-    padding: 22px 20px;
-    max-width: 920px;
+    padding: 26px 20px 34px;
+    max-width: 1040px;
     margin: auto;
 }
 
 section {
     background: var(--surface);
-    padding: 24px;
-    margin-bottom: 20px;
+    padding: 28px;
+    margin-bottom: 22px;
     border-radius: var(--radius);
     border: 1px solid var(--border);
     box-shadow: var(--shadow-soft);
@@ -183,67 +193,112 @@ h1, h2, h3 {
 
 /* Styles for Introduction Section */
 .hero {
-    text-align: center;
-    padding: 50px 20px;
+    padding: 42px;
     background-color: var(--surface);
-    margin-bottom: 20px;
+    margin-bottom: 22px;
     border-radius: var(--radius);
-    box-shadow: var(--shadow-soft);
+    box-shadow: var(--shadow-card);
     border: 1px solid var(--border);
+}
+
+.hero .container {
+    display: grid;
+    grid-template-columns: 190px minmax(0, 1fr);
+    gap: 34px;
+    align-items: center;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.hero-media {
+    display: flex;
+    justify-content: center;
 }
 
 .hero .profile-pic {
-    width: 150px;
-    height: 150px;
+    width: 176px;
+    height: 176px;
     border-radius: 50%;
     object-fit: cover;
     display: block;
-    margin: 0 auto 20px auto;
-    border: 2px solid var(--accent);
+    margin: 0;
+    border: 3px solid var(--accent);
+    box-shadow: 0 12px 26px rgba(47, 111, 94, 0.16);
+}
+
+.hero-copy {
+    text-align: left;
+}
+
+.hero-kicker {
+    color: var(--accent);
+    font-size: 0.78rem;
+    font-weight: 850;
+    letter-spacing: 0.08em;
+    line-height: 1.3;
+    margin: 0 0 10px;
+    text-transform: uppercase;
 }
 
 .hero h1 {
-    font-size: 2.5em;
-    margin-bottom: 10px;
+    font-size: clamp(2.4rem, 6vw, 4.4rem);
+    letter-spacing: 0;
+    line-height: 0.98;
+    margin: 0 0 16px;
 }
 
 .hero .subtitle {
-    font-size: 1.2em;
-    color: var(--muted);
-    margin-bottom: 20px;
+    color: var(--text);
+    font-size: 1.08rem;
+    font-weight: 700;
+    line-height: 1.75;
+    margin: 0 0 10px;
+    max-width: 620px;
 }
 
-.hero p {
-    max-width: 700px;
-    margin: 0 auto 30px auto;
-    line-height: 1.85;
+.hero-description {
+    color: var(--muted);
+    font-size: 0.98rem;
+    line-height: 1.8;
+    margin: 0 0 22px;
+    max-width: 620px;
 }
 
 .social-links a {
-    display: inline-block;
-    margin: 0 10px;
+    display: inline-flex;
+    align-items: center;
+    margin: 0 8px 0 0;
+    min-height: 36px;
+    border: 1px solid rgba(47, 111, 94, 0.24);
+    border-radius: 999px;
     color: var(--accent);
+    font-size: 0.95rem;
+    font-weight: 800;
+    line-height: 1;
+    padding: 8px 13px;
     text-decoration: none;
-    font-size: 1.2em;
 }
 
 .social-links a:hover {
-    text-decoration: underline;
+    background: var(--accent-soft);
+    text-decoration: none;
 }
 
 .profile-tabs {
-    margin-top: 20px;
-    padding-top: 20px;
+    margin-top: 0;
+    padding: 24px;
+    box-shadow: var(--shadow-card);
 }
 
 .profile-tab-list {
-    display: inline-flex;
+    display: flex;
     gap: 6px;
     padding: 5px;
-    margin-bottom: 22px;
+    margin: 0 auto 24px;
     border: 1px solid var(--border);
     border-radius: 999px;
     background: var(--code-bg);
+    max-width: 560px;
 }
 
 .profile-tab {
@@ -256,6 +311,7 @@ h1, h2, h3 {
     font-size: 0.95rem;
     font-weight: 800;
     line-height: 1;
+    flex: 1;
     padding: 11px 16px;
     transition: background 160ms ease, color 160ms ease, box-shadow 160ms ease;
 }
@@ -276,32 +332,61 @@ h1, h2, h3 {
 
 .profile-tab-panel h2 {
     margin-top: 0;
+    margin-bottom: 0.35rem;
+    font-size: 1.85rem;
+    line-height: 1.25;
 }
 
 /* responsive design for general layout */
 @media (max-width: 768px) {
     header nav ul {
-        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: center;
     }
 
     header nav ul li {
-        margin: 5px 0;
+        margin: 0;
     }
 
     main {
-        padding: 10px;
+        padding: 12px;
+    }
+
+    section {
+        padding: 20px;
+    }
+
+    .hero {
+        padding: 28px 20px;
+    }
+
+    .hero .container {
+        grid-template-columns: 1fr;
+        gap: 22px;
+    }
+
+    .hero-copy {
+        text-align: center;
     }
 
     .hero h1 {
-        font-size: 2em;
+        font-size: 2.65rem;
     }
 
     .hero .subtitle {
-        font-size: 1em;
+        font-size: 1rem;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-description {
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .social-links a {
-        font-size: 1em;
+        font-size: 0.92rem;
+        margin: 4px;
     }
 
     .main-content-flex {
@@ -316,11 +401,44 @@ h1, h2, h3 {
     .profile-tab-list {
         display: flex;
         width: 100%;
+        max-width: none;
     }
 
     .profile-tab {
         flex: 1;
         padding: 11px 10px;
+    }
+}
+
+@media (max-width: 520px) {
+    body {
+        padding-top: 58px;
+    }
+
+    header nav ul li a {
+        font-size: 0.86rem;
+        padding: 8px 9px;
+    }
+
+    .hero .profile-pic {
+        width: 148px;
+        height: 148px;
+    }
+
+    .hero-kicker {
+        font-size: 0.68rem;
+    }
+
+    .hero h1 {
+        font-size: 2.35rem;
+    }
+
+    .profile-tabs {
+        padding: 18px;
+    }
+
+    .profile-tab-panel h2 {
+        font-size: 1.55rem;
     }
 }
 
