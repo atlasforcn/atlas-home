@@ -1,322 +1,162 @@
 {
-  "version": 1,
+  "version": 2,
   "events": [
     {
-      "id": "star-x-participant-2020-08",
-      "category": "job",
-      "when": "2020 年 8 月起",
-      "startYear": 2020,
-      "startMonth": 8,
-      "endYear": null,
-      "title": "星希科技參與者（兼職／參與型）",
-      "summary": "參與太空／科技相關專案與討論，作為早期投入太空產業與技術創業場域的經歷。",
-      "details": [
-        "性質偏兼職／參與型角色，不宜公開強調為「經營」。"
-      ],
-      "keywords": ["太空", "科技", "專案參與"]
-    },
-    {
-      "id": "yang-ming-jiao-tong-transport-chair-2020-05",
-      "category": "public_service",
-      "when": "2020 年 5 月至 2021 年 5 月",
-      "startYear": 2020,
-      "startMonth": 5,
-      "endYear": 2021,
-      "endMonth": 5,
-      "title": "陽明交通大學學生會交通分會會長",
-      "summary": "參與學生自治與校園公共事務，負責學生權益、校務溝通與組織運作。",
-      "details": [
-        "推動校園公共事務與溝通協調。"
-      ],
-      "keywords": ["校園治理", "學生自治"]
-    },
-    {
-      "id": "yang-ming-jiao-tong-council-2020-05",
-      "category": "public_service",
-      "when": "2020 年 5 月至 2021 年 5 月",
-      "startYear": 2020,
-      "startMonth": 5,
-      "endYear": 2021,
-      "endMonth": 5,
-      "title": "陽明交通大學學生議員",
-      "summary": "參與學生議會，進行校園議題討論、監督與公共政策倡議。",
-      "details": [
-        "協助推動公共政策與議題倡議。"
-      ],
-      "keywords": ["公共政策", "校園議題"]
-    },
-    {
-      "id": "space-youth-talent-2022-08",
+      "id": "g9-2-france-digital-resilience-2026",
       "category": "achievement",
-      "when": "2022 年 8 月起",
-      "startYear": 2022,
-      "startMonth": 8,
+      "when": "2026 年",
+      "startYear": 2026,
+      "startMonth": null,
       "endYear": null,
-      "title": "中華民國太空事務青年人才（入選）",
-      "summary": "作為長期投入太空政策、產業與國際交流之基礎經歷。",
+      "title": "G-9-2：數位韌性 × 青年行動",
+      "summary": "以法國數位韌性、資安治理與青年行動為主題，規劃將觀察與經驗回饋到台灣技術社群與公共治理場域。",
       "details": [
-        "以青年人才身分持續累積政策、產業與國際交流的基礎。"
+        "聚焦數位韌性、資安治理、人才培育與青年公共參與。",
+        "延伸過去在資安社群、城市治理與國際交流上的經驗。"
       ],
-      "keywords": ["太空政策", "產業", "國際交流"]
+      "keywords": [
+        "數位韌性",
+        "法國",
+        "青年行動",
+        "公共治理"
+      ]
     },
     {
-      "id": "nsc-cubesat-platform-project-2022-12",
+      "id": "umal-airbus-challenge-2026",
       "category": "project",
-      "when": "2022 年 12 月起",
-      "startYear": 2022,
+      "when": "2026 年",
+      "startYear": 2026,
+      "startMonth": null,
+      "endYear": null,
+      "title": "UMAL：Universal Mission Abstraction Layer",
+      "summary": "以 AI 驅動的任務抽象層為概念，提出地球觀測任務從事件到排程的協調流程。",
+      "details": [
+        "參與 INNOspace / Airbus Challenge，將操作者意圖轉換為任務規劃、約束求解與資料回收流程。"
+      ],
+      "keywords": [
+        "UMAL",
+        "AI",
+        "Earth Observation",
+        "Mission Planning"
+      ]
+    },
+    {
+      "id": "eswatini-digital-resilience-instructor-2025",
+      "category": "project",
+      "when": "2025 年 12 月",
+      "startYear": 2025,
       "startMonth": 12,
       "endYear": null,
-      "title": "國家太空中心立方衛星／標準立方衛星平台相關專案（專案管理）",
-      "summary": "協助 CubeSat 與通訊任務之跨部門協調、進度追蹤、會議整合與風險管理。",
+      "title": "English-Medium Instructor in Digital Resilience & Cybersecurity",
+      "summary": "與台灣數位外交協會合作，為 Eswatini 執行六堂英文訓練，主題涵蓋數位韌性、資安與通訊安全。",
       "details": [
-        "技術會議整合、跨部門協調、進度追蹤與風險管理。"
+        "每堂課約 90 分鐘，將台灣資安社群與通訊安全經驗轉化為英文培訓內容。"
       ],
-      "keywords": ["CubeSat", "通訊任務", "專案管理"]
+      "keywords": [
+        "Eswatini",
+        "Cybersecurity",
+        "Digital Resilience",
+        "Training"
+      ]
     },
     {
-      "id": "standard-cubesat-platform-plan-2022-12",
-      "category": "project",
-      "when": "2022 年 12 月起",
-      "startYear": 2022,
-      "startMonth": 12,
-      "endYear": null,
-      "title": "標準立方衛星平台計畫（子系統介面協調）",
-      "summary": "協調 OBC、FSW、TTC、EDI、EPS、GS 等子系統介面，推進標準化平台需求與規格討論。",
-      "details": [
-        "針對子系統介面進行規格與技術討論。"
-      ],
-      "keywords": ["OBC", "FSW", "TTC", "EPS", "介面協調"]
-    },
-    {
-      "id": "satcom-security-planning-2023",
-      "category": "project",
-      "when": "2023 年起",
-      "startYear": 2023,
-      "startMonth": null,
-      "endYear": null,
-      "title": "衛星通訊與資安加密需求規劃",
-      "summary": "參與 DES-56、AES-256 等通訊加密需求討論，協調地面端、星上端與有限運算資源下的取捨。",
-      "details": [
-        "討論通訊加密需求與實作取捨。"
-      ],
-      "keywords": ["衛星通訊", "資安加密", "DES-56", "AES-256"]
-    },
-    {
-      "id": "tle-automation-2023",
-      "category": "project",
-      "when": "2023 年起",
-      "startYear": 2023,
-      "startMonth": null,
-      "endYear": null,
-      "title": "衛星軌道資料／TLE 自動化處理",
-      "summary": "建立或協助規劃 TLE、OPM、AWS S3、Google Sheets、Apps Script 等資料匯入與追蹤流程，用於早期在軌操作與資料檢核。",
-      "details": [
-        "支援軌道資料更新與資料檢核流程。"
-      ],
-      "keywords": ["TLE", "OPM", "S3", "Apps Script"]
-    },
-    {
-      "id": "sitrecon-ship-tracker-2020-08",
-      "category": "community",
-      "when": "2020 年 8 月至 2021 年 9 月",
-      "startYear": 2020,
-      "startMonth": 8,
-      "endYear": 2021,
-      "endMonth": 9,
-      "title": "SITCON 學生計算機年會（總召）",
-      "summary": "統籌學生技術社群大型年會，負責組織協調、活動規劃、志工團隊與議程推進。",
-      "details": [
-        "擔任大型社群活動的統籌角色。"
-      ],
-      "keywords": ["SITCON", "總召", "社群活動"]
-    },
-    {
-      "id": "hitcon-community-2021",
-      "category": "community",
-      "when": "2021 年起",
-      "startYear": 2021,
-      "startMonth": null,
-      "endYear": null,
-      "title": "HITCON 台灣駭客年會（社群參與／組織協力）",
-      "summary": "長期參與台灣資安社群與技術年會組織，累積大型技術活動、社群治理與跨界協作經驗。",
-      "details": [
-        "協力活動推進與社群運作。"
-      ],
-      "keywords": ["HITCON", "資安社群", "組織協力"]
-    },
-    {
-      "id": "hige-youth-advisory-2022-01",
-      "category": "public_service",
-      "when": "2022 年 1 月至 2023 年 8 月",
-      "startYear": 2022,
-      "startMonth": 1,
-      "endYear": 2023,
-      "endMonth": 8,
-      "title": "新竹市政府第二屆青年諮詢委員",
-      "summary": "參與市政青年諮詢，協助提供青年政策、城市治理與公共參與建議。",
-      "details": [
-        "聚焦青年政策與城市治理之建議輸入。"
-      ],
-      "keywords": ["青年諮詢", "城市治理", "公共參與"]
-    },
-    {
-      "id": "hige-youth-advisory-2023-09",
-      "category": "public_service",
-      "when": "2023 年 9 月起",
-      "startYear": 2023,
-      "startMonth": 9,
-      "endYear": null,
-      "title": "新竹市政府第三屆青年諮詢委員（移居永續組）",
-      "summary": "持續參與新竹市青年政策，關注城市移居、永續發展、青年參與與地方治理。",
-      "details": [
-        "持續投入移居永續與地方治理議題。"
-      ],
-      "keywords": ["移居永續", "地方治理", "青年參與"]
-    },
-    {
-      "id": "startup-tracking-broadband-cubesat-2024",
-      "category": "project",
-      "when": "2024 年起",
-      "startYear": 2024,
-      "startMonth": null,
-      "endYear": null,
-      "title": "新創追星計畫／寬頻通訊立方衛星案",
-      "summary": "協助階段性成果審查、在軌操作成果彙整、委員溝通與會議安排。",
-      "details": [
-        "階段審查與成果彙整的協作。"
-      ],
-      "keywords": ["追星計畫", "寬頻通訊", "在軌操作"]
-    },
-    {
-      "id": "launch-service-procurement-2024",
-      "category": "project",
-      "when": "2024 年起",
-      "startYear": 2024,
-      "startMonth": null,
-      "endYear": null,
-      "title": "發射服務採購與 SOW 撰寫",
-      "summary": "協助研擬 launch service SOW、rebooking fee、launch delay、export license、ICD、PUG、ETR、fit-check、logistics 等採購與技術文件。",
-      "details": [
-        "支援發射服務採購文件與技術內容彙整。"
-      ],
-      "keywords": ["SOW", "launch service", "採購文件"]
-    },
-    {
-      "id": "sat-tracking-service-procurement-2024",
-      "category": "project",
-      "when": "2024 年起",
-      "startYear": 2024,
-      "startMonth": null,
-      "endYear": null,
-      "title": "衛星追蹤服務採購 SOW（驗收架構）",
-      "summary": "設計以 AWS 帳號、S3 資料交付、30 個有效更新日、TLE／state vector 資料為核心的服務驗收架構，使服務與發射時程脫鉤。",
-      "details": [
-        "以資料交付與有效更新日設計驗收邏輯。"
-      ],
-      "keywords": ["AWS", "S3", "TLE", "state vector", "驗收架構"]
-    },
-    {
-      "id": "frequency-coordination-2024",
-      "category": "project",
-      "when": "2024 年起",
-      "startYear": 2024,
-      "startMonth": null,
-      "endYear": null,
-      "title": "國際頻率協調／SFCG／ITU 相關協調",
-      "summary": "協助整理衛星與地面站參數，包括 UHF、S-band、X-band、地面站座標、功率、天線增益、雜訊溫度等資訊。",
-      "details": [
-        "支援頻率協調所需的參數整理。"
-      ],
-      "keywords": ["SFCG", "ITU", "UHF", "S-band", "X-band"]
-    },
-    {
-      "id": "hxcmt-lead-2024-03",
+      "id": "hitcon-cmt-general-chair-2024",
       "category": "community",
       "when": "2024 年 3 月至 2025 年 3 月",
       "startYear": 2024,
       "startMonth": 3,
       "endYear": 2025,
       "endMonth": 3,
-      "title": "HITCON CMT 台灣駭客年會（總召）",
-      "summary": "擔任 HITCON CMT 總召，統籌台灣重要資安社群年會之整體規劃、團隊協調與活動執行。",
+      "title": "HITCON CMT General Chair",
+      "summary": "統籌台灣重要資安社群年會，負責活動治理、議程推進、國際講者協調與跨團隊執行。",
       "details": [
-        "大型活動的整體規劃與執行統籌。"
+        "累積大型技術活動、社群治理與跨團隊協作經驗。"
       ],
-      "keywords": ["HITCON CMT", "總召", "資安社群"]
+      "keywords": [
+        "HITCON",
+        "Community",
+        "Event Governance",
+        "Cybersecurity"
+      ]
     },
     {
-      "id": "singapore-youth-exchange-2024-02",
+      "id": "hsinchu-youth-advisory-2022",
       "category": "public_service",
-      "when": "2024 年 2 月",
-      "startYear": 2024,
-      "startMonth": 2,
-      "endYear": 2024,
-      "endMonth": 2,
-      "title": "新竹市政府國際青年交流赴新加坡代表團",
-      "summary": "代表新竹市參與國際青年交流，拓展城市治理、青年參與與國際合作視野。",
+      "when": "2022 年 11 月至 2025 年 8 月",
+      "startYear": 2022,
+      "startMonth": 11,
+      "endYear": 2025,
+      "endMonth": 8,
+      "title": "新竹市政府青年諮詢委員",
+      "summary": "參與青年政策、數位治理與城市發展討論，提供公共政策建議並參與國際交流。",
       "details": [
-        "連結城市政策、青年治理與國際視野。"
+        "曾代表新竹市參與國際青年交流，觀察並交流數位治理與智慧城市發展經驗。"
       ],
-      "keywords": ["國際青年交流", "城市治理", "新加坡"]
+      "keywords": [
+        "青年諮詢",
+        "城市治理",
+        "Digital Governance",
+        "Public Policy"
+      ]
     },
     {
-      "id": "eswatini-digital-resilience-training-2025",
-      "category": "project",
-      "when": "2025 年至 2026 年",
-      "startYear": 2025,
-      "startMonth": null,
-      "endYear": 2026,
-      "endMonth": null,
-      "title": "Eswatini 數位韌性與通訊安全訓練（英語訓練講師／講者）",
-      "summary": "與外交部及台灣數位外交協會合作，規劃並執行英文訓練內容：數位韌性、資安治理、通訊安全與衛星通訊相關應用。",
-      "details": [
-        "將台灣資安社群與通訊安全經驗轉化為國際培訓內容。",
-        "主題涵蓋數位韌性、資安、通訊安全與衛星通訊相關應用。"
-      ],
-      "keywords": ["數位韌性", "資安治理", "通訊安全", "衛星通訊"]
-    },
-    {
-      "id": "aeas-community-planning-2025",
-      "category": "community",
-      "when": "2025 年起",
-      "startYear": 2025,
-      "startMonth": null,
+      "id": "taiwan-space-agency-cubesat-pm-2022",
+      "category": "job",
+      "when": "2022 年 12 月起",
+      "startYear": 2022,
+      "startMonth": 12,
       "endYear": null,
-      "title": "AEAS 逆熵航太學會（參與／社群內容規劃）",
-      "summary": "協助規劃航太社群內容：Facebook、LinkedIn、Instagram 主題文、論文導讀、知識分享、工作坊與研討會宣傳。",
+      "title": "Taiwan Space Agency — Project Manager, CubeSat Missions",
+      "summary": "負責 CubeSat 任務的跨部門整合、里程碑追蹤、風險管理與國際合作協調，支援多個衛星任務在軌運行。",
       "details": [
-        "以社群內容與活動宣傳推進知識分享與討論。"
+        "作為技術與管理介面，協調任務執行、供應商、國際夥伴與內部工程團隊。",
+        "工作涵蓋任務時程、技術文件、系統介面、發射與在軌操作相關協調。"
       ],
-      "keywords": ["AEAS", "航太社群", "內容規劃"]
+      "keywords": [
+        "CubeSat",
+        "Project Management",
+        "Space Systems",
+        "International Collaboration"
+      ]
     },
     {
-      "id": "umal-inno-airbus-2026",
-      "category": "project",
-      "when": "2026 年",
-      "startYear": 2026,
-      "startMonth": null,
+      "id": "nebulax-founder-2020",
+      "category": "job",
+      "when": "2020 年 8 月起",
+      "startYear": 2020,
+      "startMonth": 8,
       "endYear": null,
-      "title": "UMAL：Universal Mission Abstraction Layer（INNOspace / Airbus Challenge 參與）",
-      "summary": "以「Universal Mission Abstraction Layer, UMAL」為核心概念，提出 AI 驅動的地球觀測任務協調與衛星任務抽象層設計。",
+      "title": "NebulaX（星希科技）Founder",
+      "summary": "投入資安與太空工程相關教育、技術服務與專案合作，連結技術訓練、專業服務與太空應用場域。",
       "details": [
-        "提出 AI-driven event-to-tasking 的衛星任務協調層：將操作者意圖轉換為任務規劃、約束求解、任務排程與資料回收流程。"
+        "內容包含資安基礎、攻防觀念、工作坊、衛星與太空應用專案參與。"
       ],
-      "keywords": ["UMAL", "AI 任務協調", "event-to-tasking", "地球觀測"]
+      "keywords": [
+        "NebulaX",
+        "Cybersecurity",
+        "Space Engineering",
+        "Training"
+      ]
     },
     {
-      "id": "g9-2-digital-resilience-youth-action-france-2026",
+      "id": "nycu-arete-honors-2018",
       "category": "achievement",
-      "when": "2026 年",
-      "startYear": 2026,
+      "when": "2018 年至 2022 年",
+      "startYear": 2018,
       "startMonth": null,
-      "endYear": null,
-      "title": "教育部／法國相關青年交流計畫（G-9-2：數位韌性 × 青年行動）",
-      "summary": "聚焦法國數位韌性、資安治理、人才培育與青年行動經驗，並規劃將觀察回饋至台灣技術社群與公共治理場域。",
+      "endYear": 2022,
+      "endMonth": null,
+      "title": "國立陽明交通大學百川學士學位學程",
+      "summary": "主修通訊科技與航太相關領域，建立後續投入衛星任務、資安治理與跨域專案管理的基礎。",
       "details": [
-        "針對數位韌性、資安治理與青年行動的學習與回饋規劃。"
+        "學習背景橫跨通訊科技、航太與跨域專題，並延伸至公共事務與技術社群參與。"
       ],
-      "keywords": ["法國", "數位韌性", "資安治理", "青年行動"]
+      "keywords": [
+        "NYCU",
+        "Aerospace",
+        "Communication Technology",
+        "Arete Honors"
+      ]
     }
   ]
 }
-
