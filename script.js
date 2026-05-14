@@ -63,6 +63,25 @@ async function fetchBlogText(path) {
     return response.text();
 }
 
+async function loadTimelineData() {
+    const embedded = document.getElementById('timeline-data');
+    const embeddedText = embedded && embedded.textContent.trim();
+
+    if (window.location.protocol === 'file:' && embeddedText) {
+        return JSON.parse(embeddedText);
+    }
+
+    try {
+        const url = new URL('timeline.json', baseDirHref()).href;
+        const raw = await fetch(url);
+        if (!raw.ok) throw new Error(`HTTP ${raw.status}`);
+        return raw.json();
+    } catch (err) {
+        if (embeddedText) return JSON.parse(embeddedText);
+        throw err;
+    }
+}
+
 /** 從 Markdown 取第一行 # 標題 */
 function getTitleFromMarkdown(markdown) {
     const m = markdown.match(/^#\s+(.+)$/m);
@@ -258,17 +277,8 @@ async function loadTimeline() {
 
     container.innerHTML = '';
 
-    if (window.location.protocol === 'file:') {
-        container.innerHTML =
-            '<p class="blog-error">時間軸需要透過本機伺服器載入 `timeline.json`。請用 <code>python3 -m http.server 8000</code> 啟動網站後再開啟。</p>';
-        return;
-    }
-
     try {
-        const url = new URL('timeline.json', baseDirHref()).href;
-        const raw = await fetch(url);
-        if (!raw.ok) throw new Error(`HTTP ${raw.status}`);
-        const data = await raw.json();
+        const data = await loadTimelineData();
         const events = Array.isArray(data.events) ? data.events : (Array.isArray(data) ? data : []);
 
         if (events.length === 0) {
@@ -380,17 +390,8 @@ async function loadTimelineMultiTrack() {
 
     root.innerHTML = '';
 
-    if (window.location.protocol === 'file:') {
-        root.innerHTML =
-            '<p class="blog-error">時間軸需要透過本機伺服器載入 `timeline.json`，請用 <code>python3 -m http.server 8000</code> 啟動後再開啟。</p>';
-        return;
-    }
-
     try {
-        const url = new URL('timeline.json', baseDirHref()).href;
-        const raw = await fetch(url);
-        if (!raw.ok) throw new Error(`HTTP ${raw.status}`);
-        const data = await raw.json();
+        const data = await loadTimelineData();
 
         const events = Array.isArray(data.events) ? data.events : (Array.isArray(data) ? data : []);
         if (events.length === 0) {
@@ -399,11 +400,12 @@ async function loadTimelineMultiTrack() {
         }
 
         const TRACKS = [
-            { id: 'achievement', label: '入選／里程碑', color: '#2f6f5e' },
-            { id: 'project', label: '專案／工作', color: '#2f5f9e' },
-            { id: 'job', label: '職涯／管理', color: '#6b5ca5' },
-            { id: 'public_service', label: '公部門／訓練', color: '#b26a3c' },
+            { id: 'space', label: '太空／通訊', color: '#2f5f9e' },
+            { id: 'security', label: '資安／韌性', color: '#6b5ca5' },
+            { id: 'education', label: '學習／研究', color: '#2f6f5e' },
             { id: 'community', label: '社群／協力', color: '#6f8529' },
+            { id: 'public_service', label: '公共／國際', color: '#b26a3c' },
+            { id: 'achievement', label: '競賽／里程碑', color: '#8a7f6a' },
         ];
 
         const TRACK_BY_ID = {};
@@ -435,9 +437,9 @@ async function loadTimelineMultiTrack() {
         }
 
         function whenTextOngoing(e, start) {
-            const when = (e.when || '');
-            if (when && (when.includes('至今') || when.includes('起'))) return when;
-            return start + ' — 至今';
+            const when = (e.when || '').trim();
+            if (when) return when;
+            return start;
         }
 
         function escapeHtml(value) {

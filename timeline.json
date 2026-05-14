@@ -1,35 +1,35 @@
 {
-  "version": 2,
+  "version": 5,
   "events": [
     {
       "id": "g9-2-france-digital-resilience-2026",
-      "category": "achievement",
+      "category": "public_service",
       "when": "2026 年",
       "startYear": 2026,
       "startMonth": null,
       "endYear": null,
       "title": "G-9-2：數位韌性 × 青年行動",
-      "summary": "以法國數位韌性、資安治理與青年行動為主題，規劃將觀察與經驗回饋到台灣技術社群與公共治理場域。",
+      "summary": "錄取教育部青年百億海外圓夢基金海外翱翔組，以法國為場域觀察數位韌性、資安治理與人才培育。",
       "details": [
-        "聚焦數位韌性、資安治理、人才培育與青年公共參與。",
-        "延伸過去在資安社群、城市治理與國際交流上的經驗。"
+        "計畫主軸是從政策、人才到產業落地，理解法國如何把國家級資安治理轉化為可執行的制度與工作方式。",
+        "返國後預計整理法國數位韌性治理觀察，回饋通訊韌性、資安社群與青年工程師培訓。"
       ],
       "keywords": [
-        "數位韌性",
         "法國",
-        "青年行動",
-        "公共治理"
+        "數位韌性",
+        "資安治理",
+        "青年行動"
       ]
     },
     {
       "id": "umal-airbus-challenge-2026",
-      "category": "project",
+      "category": "space",
       "when": "2026 年",
       "startYear": 2026,
       "startMonth": null,
       "endYear": null,
       "title": "UMAL：Universal Mission Abstraction Layer",
-      "summary": "以 AI 驅動的任務抽象層為概念，提出地球觀測任務從事件到排程的協調流程。",
+      "summary": "提出 AI 驅動的任務抽象層，協助地球觀測任務從事件需求轉換為排程與協調流程。",
       "details": [
         "參與 INNOspace / Airbus Challenge，將操作者意圖轉換為任務規劃、約束求解與資料回收流程。"
       ],
@@ -41,121 +41,242 @@
       ]
     },
     {
+      "id": "space-systems-research-direction-2026",
+      "category": "education",
+      "when": "研究方向",
+      "startYear": 2026,
+      "startMonth": null,
+      "endYear": null,
+      "title": "太空系統工程：產業本土化與垂直整合",
+      "summary": "研讀計畫聚焦台灣太空產業商業化進程，思考如何透過產業鏈垂直整合提升任務效益與國際競爭力。",
+      "details": [
+        "希望透過系統工程、太空任務設計、任務營運與產品設計訓練，補足從實務到研究的能力。",
+        "長期目標是加速台灣太空產業本土化，讓更多人才看見台灣的太空可能性。"
+      ],
+      "keywords": [
+        "系統工程",
+        "太空產業",
+        "垂直整合",
+        "商業化"
+      ]
+    },
+    {
       "id": "eswatini-digital-resilience-instructor-2025",
-      "category": "project",
+      "category": "security",
       "when": "2025 年 12 月",
       "startYear": 2025,
       "startMonth": 12,
       "endYear": null,
-      "title": "English-Medium Instructor in Digital Resilience & Cybersecurity",
-      "summary": "與台灣數位外交協會合作，為 Eswatini 執行六堂英文訓練，主題涵蓋數位韌性、資安與通訊安全。",
+      "title": "史瓦帝尼數位韌性與資安英文訓練",
+      "summary": "與外交部、台灣數位外交協會合作，赴史瓦帝尼進行五天英文工作坊與六堂 90 分鐘課程。",
       "details": [
-        "每堂課約 90 分鐘，將台灣資安社群與通訊安全經驗轉化為英文培訓內容。"
+        "課程涵蓋數位韌性、資訊安全、通訊與無線電安全、反詐騙及資安人才培育。",
+        "這段經驗讓我更確定資安不是單一工具問題，而是威脅模型、責任分工、人才與決策邏輯的整體系統。"
       ],
       "keywords": [
         "Eswatini",
-        "Cybersecurity",
         "Digital Resilience",
+        "Cybersecurity",
         "Training"
       ]
     },
     {
-      "id": "hitcon-cmt-general-chair-2024",
-      "category": "community",
-      "when": "2024 年 3 月至 2025 年 3 月",
-      "startYear": 2024,
-      "startMonth": 3,
-      "endYear": 2025,
-      "endMonth": 3,
-      "title": "HITCON CMT General Chair",
-      "summary": "統籌台灣重要資安社群年會，負責活動治理、議程推進、國際講者協調與跨團隊執行。",
+      "id": "international-youth-exchange-2025",
+      "category": "public_service",
+      "when": "2025 年",
+      "startYear": 2025,
+      "startMonth": 2,
+      "endYear": null,
+      "title": "國際青年交流與英文技術分享",
+      "summary": "代表新竹市參與新加坡青年交流，也擔任 TEDx 英語講者，持續練習把技術與制度議題說給不同背景的人理解。",
       "details": [
-        "累積大型技術活動、社群治理與跨團隊協作經驗。"
+        "圓夢文件中把這些經驗整理為跨文化溝通、公共事務與國際合作能力的一部分。"
       ],
       "keywords": [
-        "HITCON",
-        "Community",
-        "Event Governance",
-        "Cybersecurity"
+        "新加坡",
+        "TEDx",
+        "公共事務",
+        "英文發表"
+      ]
+    },
+    {
+      "id": "space-youth-trainee-2022",
+      "category": "space",
+      "when": "2022 年起",
+      "startYear": 2022,
+      "startMonth": 8,
+      "endYear": null,
+      "title": "太空事務青年人才",
+      "summary": "成為第一屆太空青年事務人才選訓計畫學員，推動太空科技普及、應用與國際知名度。",
+      "details": [
+        "這條線與國家太空中心工作、太空科普承包經驗和研究所研讀計畫相互銜接。"
+      ],
+      "keywords": [
+        "太空青年",
+        "人才培育",
+        "太空科普"
+      ]
+    },
+    {
+      "id": "tasa-cubesat-project-management-2022",
+      "category": "space",
+      "when": "2022 年 12 月至今",
+      "startYear": 2022,
+      "startMonth": 12,
+      "endYear": null,
+      "title": "國家太空中心：立方衛星與通訊任務管理",
+      "summary": "擔任航太計畫專案經理，參與多項立方衛星與通訊相關任務，負責跨單位整合、國際技術協作、風險管理與專案推進。",
+      "details": [
+        "英文 CV 與圓夢計畫書皆提到，已有數枚參與之衛星在軌穩定服役。",
+        "工作也延伸到衛星與通訊安全相關培訓，補足資料鏈完整性與風險管理的實務理解。"
+      ],
+      "keywords": [
+        "TASA",
+        "CubeSat",
+        "通訊任務",
+        "風險管理"
       ]
     },
     {
       "id": "hsinchu-youth-advisory-2022",
       "category": "public_service",
-      "when": "2022 年 11 月至 2025 年 8 月",
+      "when": "2022 年至 2025 年",
       "startYear": 2022,
-      "startMonth": 11,
+      "startMonth": 1,
       "endYear": 2025,
-      "endMonth": 8,
-      "title": "新竹市政府青年諮詢委員",
-      "summary": "參與青年政策、數位治理與城市發展討論，提供公共政策建議並參與國際交流。",
+      "endMonth": 4,
+      "title": "新竹市青年諮詢委員",
+      "summary": "連續擔任第二、三屆青年諮詢委員，參與科技政策、青年治理與城市發展相關議題。",
       "details": [
-        "曾代表新竹市參與國際青年交流，觀察並交流數位治理與智慧城市發展經驗。"
+        "這段經驗讓專業工作之外的公共服務與技術貢獻能彼此連結。"
       ],
       "keywords": [
         "青年諮詢",
-        "城市治理",
-        "Digital Governance",
-        "Public Policy"
+        "科技政策",
+        "城市治理"
       ]
     },
     {
-      "id": "taiwan-space-agency-cubesat-pm-2022",
-      "category": "job",
-      "when": "2022 年 12 月起",
-      "startYear": 2022,
-      "startMonth": 12,
-      "endYear": null,
-      "title": "Taiwan Space Agency — Project Manager, CubeSat Missions",
-      "summary": "負責 CubeSat 任務的跨部門整合、里程碑追蹤、風險管理與國際合作協調，支援多個衛星任務在軌運行。",
+      "id": "hitcon-cmt-general-chair-2024",
+      "category": "security",
+      "when": "2024 年 3 月至 2025 年 3 月",
+      "startYear": 2024,
+      "startMonth": 3,
+      "endYear": 2025,
+      "endMonth": 3,
+      "title": "HITCON CMT 總召集人",
+      "summary": "統籌亞洲重要資安社群研討會，負責議程架構、國際講者協調、活動治理與跨團隊執行。",
       "details": [
-        "作為技術與管理介面，協調任務執行、供應商、國際夥伴與內部工程團隊。",
-        "工作涵蓋任務時程、技術文件、系統介面、發射與在軌操作相關協調。"
+        "自傳提到管理近二十名幹部、近兩百名工作人員，支援千人級付費國際研討會。",
+        "這段經驗讓我理解技術攻防、社群文化與制度協作如何互相影響。"
       ],
       "keywords": [
-        "CubeSat",
-        "Project Management",
-        "Space Systems",
-        "International Collaboration"
+        "HITCON",
+        "資安社群",
+        "活動治理",
+        "國際會議"
       ]
     },
     {
       "id": "nebulax-founder-2020",
-      "category": "job",
-      "when": "2020 年 8 月起",
+      "category": "security",
+      "when": "2020 年 8 月至今",
       "startYear": 2020,
       "startMonth": 8,
       "endYear": null,
-      "title": "NebulaX（星希科技）Founder",
-      "summary": "投入資安與太空工程相關教育、技術服務與專案合作，連結技術訓練、專業服務與太空應用場域。",
+      "title": "星希科技：創辦人",
+      "summary": "創立星希科技，推動資訊安全與衛星工程相關教育、技術服務與專案合作。",
       "details": [
-        "內容包含資安基礎、攻防觀念、工作坊、衛星與太空應用專案參與。"
+        "承接太空中心、清華大學與國網中心等合作經驗，並與資安講師開設零基礎資安系列課程。",
+        "課程與專案涵蓋作業系統、Web 安全、逆向工程、滲透測試與情資分析。"
       ],
       "keywords": [
-        "NebulaX",
-        "Cybersecurity",
-        "Space Engineering",
-        "Training"
+        "創業",
+        "資安教育",
+        "衛星工程",
+        "專案實務"
+      ]
+    },
+    {
+      "id": "sitcon-and-tasa-internship-2020",
+      "category": "community",
+      "when": "2020 年至 2021 年",
+      "startYear": 2020,
+      "startMonth": 1,
+      "endYear": 2021,
+      "endMonth": 9,
+      "title": "SITCON 總召與國家太空中心 6U 實習",
+      "summary": "疫情期間主導學生計算機年會轉型線上，同期也於國家太空中心設計並管理 6U 立方衛星嵌入式系統專案。",
+      "details": [
+        "SITCON 維持千人規模參與；6U 專案則累積早期太空任務管理與報告呈現經驗。"
+      ],
+      "keywords": [
+        "SITCON",
+        "6U CubeSat",
+        "線上年會",
+        "專案管理"
+      ]
+    },
+    {
+      "id": "space-and-tech-competitions-2019-2023",
+      "category": "achievement",
+      "when": "2019 年至 2023 年",
+      "startYear": 2019,
+      "startMonth": null,
+      "endYear": 2023,
+      "endMonth": null,
+      "title": "太空、資訊與生科競賽探索",
+      "summary": "從 MIT iGEM 金牌、NASA Space Apps 多次獲獎，到 iCASE 立方衛星設計競賽冠軍，累積跨域實作成果。",
+      "details": [
+        "其他有利審查文件列出：111 年大專優秀青年、立方衛星設計競賽冠軍、NASA 黑客松女力獎與聯發科特別獎、梅竹黑客松第三名、創創黑客松第二名與最佳簡報。",
+        "這些競賽讓我確認自己擅長專案管理、跨領域協作與技術應用。"
+      ],
+      "keywords": [
+        "iGEM",
+        "NASA",
+        "iCASE",
+        "黑客松"
       ]
     },
     {
       "id": "nycu-arete-honors-2018",
-      "category": "achievement",
+      "category": "education",
       "when": "2018 年至 2022 年",
       "startYear": 2018,
-      "startMonth": null,
+      "startMonth": 9,
       "endYear": 2022,
-      "endMonth": null,
-      "title": "國立陽明交通大學百川學士學位學程",
-      "summary": "主修通訊科技與航太相關領域，建立後續投入衛星任務、資安治理與跨域專案管理的基礎。",
+      "endMonth": 7,
+      "title": "陽明交通大學百川學士學位學程",
+      "summary": "返台後進入百川不分系，修習傳播科技、資訊工程、電機、太空工程、生物與企業管理等領域。",
       "details": [
-        "學習背景橫跨通訊科技、航太與跨域專題，並延伸至公共事務與技術社群參與。"
+        "學生自治與活動經驗包含學生議員、學生會會長、交通分會分會長、新生手冊、名人演講、社團博覽會與校慶演唱會等。",
+        "這段探索讓我對系統工程、跨域協作與技術應用產生明確興趣。"
       ],
       "keywords": [
         "NYCU",
-        "Aerospace",
-        "Communication Technology",
-        "Arete Honors"
+        "百川學程",
+        "跨域學習",
+        "系統工程"
+      ]
+    },
+    {
+      "id": "us-foundation-2014-2018",
+      "category": "education",
+      "when": "2014 年至 2018 年",
+      "startYear": 2014,
+      "startMonth": null,
+      "endYear": 2018,
+      "endMonth": null,
+      "title": "美國求學：跨文化與跨域基礎",
+      "summary": "於 Bellevue College 修習商業、經濟、微積分與程式設計，後至 SUNY Stony Brook 主修生物科技，建立跨領域學習基礎。",
+      "details": [
+        "期間擔任國際學生大使、學生會財務長與中文通譯，培養跨文化溝通與組織協調能力。"
+      ],
+      "keywords": [
+        "Bellevue College",
+        "SUNY Stony Brook",
+        "跨文化",
+        "生物科技"
       ]
     }
   ]
