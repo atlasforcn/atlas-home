@@ -55,6 +55,14 @@
                     <p class="timeline-lead">整合自傳、研讀計畫、英文 CV 與圓夢計畫書，保留能說明脈絡的關鍵節點。</p>
                     <div id="timeline-mt" class="timeline-mt"></div>
                     <div id="timeline-mt-details" class="timeline-mt-details" hidden></div>
+                    <section class="awards-projects" aria-labelledby="awards-projects-title">
+                        <div class="awards-projects-head">
+                            <p class="section-kicker">awards / projects</p>
+                            <h2 id="awards-projects-title">得獎與專案時間軸</h2>
+                            <p>把競賽獎項、代表作品與大型專案獨立整理，方便快速看見成果。</p>
+                        </div>
+                        <div id="awards-projects-timeline" class="awards-projects-timeline"></div>
+                    </section>
                 </div>
             </div>
 
@@ -74,7 +82,7 @@
 
     <script type="application/json" id="timeline-data">
 {
-  "version": 5,
+  "version": 6,
   "events": [
     {
       "id": "g9-2-france-digital-resilience-2026",
@@ -352,6 +360,223 @@
         "SUNY Stony Brook",
         "跨文化",
         "生物科技"
+      ]
+    }
+  ],
+  "awardsProjects": [
+    {
+      "year": 2026,
+      "type": "project",
+      "title": "UMAL：Universal Mission Abstraction Layer",
+      "result": "INNOspace / Airbus Challenge 參與專案",
+      "summary": "提出 AI 驅動的任務抽象層，將地球觀測事件需求轉換為任務規劃、約束求解與資料回收流程。",
+      "tags": [
+        "AI",
+        "Earth Observation",
+        "Mission Planning"
+      ]
+    },
+    {
+      "year": 2026,
+      "type": "project",
+      "title": "G-9-2：數位韌性 × 青年行動",
+      "result": "教育部青年百億海外圓夢基金錄取",
+      "summary": "以法國資安治理、關鍵基礎建設防護與人才培育為觀察核心，回國後整理為數位韌性治理分享與培訓內容。",
+      "tags": [
+        "法國",
+        "數位韌性",
+        "公共治理"
+      ]
+    },
+    {
+      "year": 2025,
+      "type": "project",
+      "title": "史瓦帝尼數位韌性英文工作坊",
+      "result": "五天工作坊、六堂 90 分鐘英文課程",
+      "summary": "與外交部、台灣數位外交協會合作，分享資訊安全、通訊與無線電安全、反詐騙與資安人才培育。",
+      "tags": [
+        "Eswatini",
+        "Cybersecurity",
+        "Training"
+      ]
+    },
+    {
+      "year": 2024,
+      "type": "project",
+      "title": "HITCON CMT 台灣駭客年會",
+      "result": "總召集人",
+      "summary": "統籌亞洲重要資訊安全研討會，負責議程架構、國際講者協調、活動治理與跨團隊執行。",
+      "tags": [
+        "HITCON",
+        "資安社群",
+        "國際會議"
+      ]
+    },
+    {
+      "year": 2023,
+      "type": "award",
+      "title": "ETH Taipei：StatVoting",
+      "result": "Gnosis 金牌、PSE 特別獎",
+      "summary": "以零知識證明為底的區塊鏈投票機制，探索可信投票與隱私保護的實作可能。",
+      "tags": [
+        "Blockchain",
+        "ZK",
+        "Voting"
+      ]
+    },
+    {
+      "year": 2023,
+      "type": "award",
+      "title": "NASA Space Apps：太空殖民地建設管理策略遊戲",
+      "result": "女力獎",
+      "summary": "以遊戲方式模擬太空殖民地建設與資源管理，將太空任務中的策略決策轉化為可理解的互動體驗。",
+      "tags": [
+        "NASA",
+        "Space Apps",
+        "Game"
+      ]
+    },
+    {
+      "year": 2022,
+      "type": "award",
+      "title": "NASA Space Apps：Variable star 模擬與觀測",
+      "result": "聯發科特別獎",
+      "summary": "以模擬與觀測方式呈現變星資料，連結天文資料理解與科普敘事。",
+      "tags": [
+        "NASA",
+        "Astronomy",
+        "Data"
+      ]
+    },
+    {
+      "year": 2022,
+      "type": "award",
+      "title": "對話機器人設計大賽",
+      "result": "第三名",
+      "summary": "在 ChatGPT 發布前設計 LLM 為底的人工智能陪伴系統，探索人機互動與陪伴式服務。",
+      "tags": [
+        "LLM",
+        "Chatbot",
+        "AI"
+      ]
+    },
+    {
+      "year": 2022,
+      "type": "award",
+      "title": "111 年大專優秀青年",
+      "result": "獲選",
+      "summary": "以跨域學習、公共參與、競賽成果與社群服務獲肯定。",
+      "tags": [
+        "里程碑",
+        "公共參與"
+      ]
+    },
+    {
+      "year": 2021,
+      "type": "award",
+      "title": "iCASE 立方衛星設計競賽",
+      "result": "冠軍",
+      "summary": "作品主題為立方衛星重力場探勘，以超高頻測距檢測天體重力場，奠定後續太空任務與專案管理方向。",
+      "tags": [
+        "CubeSat",
+        "iCASE",
+        "Space Mission"
+      ]
+    },
+    {
+      "year": 2021,
+      "type": "project",
+      "title": "SITCON 學生計算機年會",
+      "result": "總召集人",
+      "summary": "疫情期間主導大型學生科技年會轉型線上，維持千人規模參與與社群動能。",
+      "tags": [
+        "SITCON",
+        "Community",
+        "Event"
+      ]
+    },
+    {
+      "year": 2020,
+      "type": "project",
+      "title": "國家太空中心 6U 立方衛星實習專案",
+      "result": "專案實習生",
+      "summary": "設計並管理 6U 立方衛星嵌入式系統專案，負責專案管理、狀態機與操作模式設計、報告呈現。",
+      "tags": [
+        "6U CubeSat",
+        "Embedded",
+        "Project Management"
+      ]
+    },
+    {
+      "year": 2020,
+      "type": "award",
+      "title": "NASA Space Apps：火星通訊與環境探索遊戲",
+      "result": "女力獎",
+      "summary": "以遊戲設計呈現火星通訊與環境探索情境，讓太空任務中的限制與決策更容易被理解。",
+      "tags": [
+        "NASA",
+        "Mars",
+        "Communication"
+      ]
+    },
+    {
+      "year": 2019,
+      "type": "award",
+      "title": "MIT iGEM：E.Phoenix",
+      "result": "金牌獎",
+      "summary": "主題為基因編輯後的自毀細胞輻射探測機制，負責跨組溝通、網站與作品呈現。",
+      "tags": [
+        "iGEM",
+        "Bioengineering",
+        "Web"
+      ]
+    },
+    {
+      "year": 2019,
+      "type": "award",
+      "title": "創創 AIOT 黑客松：智慧停車路樁平台",
+      "result": "第二名、最佳報告",
+      "summary": "打造智慧停車路樁與 RFID 物聯網平台，結合硬體、平台服務與商業模型。",
+      "tags": [
+        "AIOT",
+        "RFID",
+        "Pitch"
+      ]
+    },
+    {
+      "year": 2019,
+      "type": "award",
+      "title": "梅竹黑客松：居家照護平台",
+      "result": "中華電信第三名",
+      "summary": "以穿戴裝置作為資訊來源，設計居家照護服務平台。",
+      "tags": [
+        "Hackathon",
+        "Healthcare",
+        "IoT"
+      ]
+    },
+    {
+      "year": 2019,
+      "type": "award",
+      "title": "NASA Space Apps：韋伯望遠鏡管理遊戲",
+      "result": "特別獎",
+      "summary": "以遊戲化方式呈現韋伯望遠鏡管理與任務決策。",
+      "tags": [
+        "NASA",
+        "Webb Telescope",
+        "Game"
+      ]
+    },
+    {
+      "year": 2019,
+      "type": "project",
+      "title": "交大種子基金創業競賽",
+      "result": "複賽、十萬獎金",
+      "summary": "打造結合區塊鏈的數位教育資訊共享平台，探索教育資源與社群機制。",
+      "tags": [
+        "Startup",
+        "Education",
+        "Blockchain"
       ]
     }
   ]

@@ -591,6 +591,89 @@ async function loadTimelineMultiTrack() {
     }
 }
 
+async function loadAwardsProjectsTimeline() {
+    const root = document.getElementById('awards-projects-timeline');
+    if (!root) return;
+
+    root.innerHTML = '';
+
+    try {
+        const data = await loadTimelineData();
+        const items = Array.isArray(data.awardsProjects) ? data.awardsProjects : [];
+        if (!items.length) {
+            root.innerHTML = '<p class="blog-error">尚未建立得獎與專案資料。</p>';
+            return;
+        }
+
+        const sorted = items.slice().sort((a, b) => {
+            const ay = Number(a.year) || 0;
+            const by = Number(b.year) || 0;
+            if (ay !== by) return by - ay;
+            return String(a.title || '').localeCompare(String(b.title || ''), 'zh-Hant');
+        });
+
+        const grouped = new Map();
+        sorted.forEach(item => {
+            const year = Number(item.year) || '其他';
+            if (!grouped.has(year)) grouped.set(year, []);
+            grouped.get(year).push(item);
+        });
+
+        const typeLabel = { award: '得獎', project: '專案' };
+        const typeColor = { award: '#b26a3c', project: '#2f5f9e' };
+
+        function escapeHtml(value) {
+            return String(value || '').replace(/[&<>"']/g, ch => ({
+                '&': '&amp;',
+                '<': '&lt;',
+                '>': '&gt;',
+                '"': '&quot;',
+                "'": '&#39;'
+            }[ch]));
+        }
+
+        function tagsHtml(tags) {
+            if (!Array.isArray(tags) || !tags.length) return '';
+            return `<div class="ap-tags">${tags.slice(0, 4).map(tag => `<span>${escapeHtml(tag)}</span>`).join('')}</div>`;
+        }
+
+        const fragment = document.createDocumentFragment();
+        grouped.forEach((yearItems, year) => {
+            const group = document.createElement('section');
+            group.className = 'ap-year-group';
+            group.innerHTML = `<div class="ap-year">${escapeHtml(year)}</div>`;
+
+            const list = document.createElement('div');
+            list.className = 'ap-list';
+
+            yearItems.forEach(item => {
+                const type = item.type === 'project' ? 'project' : 'award';
+                const card = document.createElement('article');
+                card.className = `ap-card ap-card-${type}`;
+                card.style.setProperty('--ap-color', typeColor[type]);
+                card.innerHTML = `
+                    <div class="ap-card-top">
+                        <span class="ap-type">${typeLabel[type]}</span>
+                        <span class="ap-result">${escapeHtml(item.result || '')}</span>
+                    </div>
+                    <h3>${escapeHtml(item.title || '')}</h3>
+                    <p>${escapeHtml(item.summary || '')}</p>
+                    ${tagsHtml(item.tags)}
+                `;
+                list.appendChild(card);
+            });
+
+            group.appendChild(list);
+            fragment.appendChild(group);
+        });
+
+        root.appendChild(fragment);
+    } catch (err) {
+        console.error(err);
+        root.innerHTML = '<p class="blog-error">得獎與專案時間軸載入失敗。</p>';
+    }
+}
+
 function switchProfileTab(panelId, updateHash = true) {
     const tabsRoot = document.getElementById('profile-tabs');
     if (!tabsRoot) return;
@@ -641,5 +724,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     if (document.getElementById('timeline-mt')) {
         loadTimelineMultiTrack();
+    }
+    if (document.getElementById('awards-projects-timeline')) {
+        loadAwardsProjectsTimeline();
     }
 });
