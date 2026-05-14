@@ -502,6 +502,9 @@ async function loadTimelineMultiTrack() {
             article.className = 'tl-card';
             article.dataset.category = ev.category;
             article.style.setProperty('--tl-card-color', track.color);
+            article.tabIndex = 0;
+            article.setAttribute('role', 'button');
+            article.setAttribute('aria-expanded', 'false');
 
             const details = detailsHtml(ev);
             const summary = ev.summary ? `<p class="tl-card-summary">${escapeHtml(ev.summary)}</p>` : '';
@@ -523,15 +526,34 @@ async function loadTimelineMultiTrack() {
 
             const button = article.querySelector('.tl-card-more');
             const detailBlock = article.querySelector('.tl-card-details');
-            button.addEventListener('click', () => {
+
+            function toggleCard() {
                 if (!detailBlock) {
                     article.classList.toggle('is-highlighted');
+                    const highlighted = article.classList.contains('is-highlighted');
+                    article.setAttribute('aria-expanded', highlighted ? 'true' : 'false');
+                    button.setAttribute('aria-expanded', highlighted ? 'true' : 'false');
                     return;
                 }
+
                 const open = detailBlock.hidden;
                 detailBlock.hidden = !open;
+                article.classList.toggle('is-open', open);
+                article.setAttribute('aria-expanded', open ? 'true' : 'false');
                 button.setAttribute('aria-expanded', open ? 'true' : 'false');
                 button.textContent = open ? '收起細節' : '展開細節';
+            }
+
+            article.addEventListener('click', toggleCard);
+            article.addEventListener('keydown', event => {
+                if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault();
+                    toggleCard();
+                }
+            });
+            button.addEventListener('click', event => {
+                event.stopPropagation();
+                toggleCard();
             });
 
             return article;

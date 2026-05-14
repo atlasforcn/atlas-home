@@ -1574,6 +1574,8 @@ h1, h2, h3 {
     grid-template-columns: 14px minmax(0, 1fr);
     gap: 13px;
     min-width: 0;
+    cursor: pointer;
+    outline: none;
 }
 
 #timeline-mt .tl-card-marker {
@@ -1583,6 +1585,7 @@ h1, h2, h3 {
     border-radius: 50%;
     background: var(--tl-card-color);
     box-shadow: 0 0 0 4px color-mix(in srgb, var(--tl-card-color) 14%, transparent);
+    transition: box-shadow 180ms ease, transform 180ms ease;
 }
 
 #timeline-mt .tl-card-body {
@@ -1593,14 +1596,25 @@ h1, h2, h3 {
     border-radius: 10px;
     padding: 14px 16px 13px;
     box-shadow: 0 1px 0 rgba(42, 35, 25, 0.03);
-    transition: border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+    transition: background 180ms ease, border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
 }
 
 #timeline-mt .tl-card:hover .tl-card-body,
+#timeline-mt .tl-card:focus-visible .tl-card-body,
+#timeline-mt .tl-card.is-open .tl-card-body,
 #timeline-mt .tl-card.is-highlighted .tl-card-body {
-    border-color: color-mix(in srgb, var(--tl-card-color) 32%, var(--tl-card-border));
-    box-shadow: 0 14px 30px rgba(42, 35, 25, 0.08);
-    transform: translateY(-1px);
+    background: #ffffff;
+    border-color: color-mix(in srgb, var(--tl-card-color) 42%, var(--tl-card-border));
+    box-shadow: 0 20px 42px rgba(42, 35, 25, 0.13), 0 0 0 4px color-mix(in srgb, var(--tl-card-color) 11%, transparent);
+    transform: translateY(-4px) scale(1.012);
+}
+
+#timeline-mt .tl-card:hover .tl-card-marker,
+#timeline-mt .tl-card:focus-visible .tl-card-marker,
+#timeline-mt .tl-card.is-open .tl-card-marker,
+#timeline-mt .tl-card.is-highlighted .tl-card-marker {
+    box-shadow: 0 0 0 7px color-mix(in srgb, var(--tl-card-color) 20%, transparent);
+    transform: scale(1.2);
 }
 
 #timeline-mt .tl-card-meta {
@@ -1676,18 +1690,23 @@ h1, h2, h3 {
 
 #timeline-mt .tl-card-more {
     border: 0;
-    background: transparent;
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--tl-card-color) 10%, #fff);
     color: var(--tl-card-color);
     cursor: pointer;
     font-size: 0.82rem;
     font-weight: 850;
     line-height: 1;
     margin-top: 12px;
-    padding: 0;
+    padding: 7px 10px;
+    transition: background 160ms ease, transform 160ms ease;
 }
 
-#timeline-mt .tl-card-more:hover {
-    text-decoration: underline;
+#timeline-mt .tl-card-more:hover,
+#timeline-mt .tl-card:hover .tl-card-more,
+#timeline-mt .tl-card:focus-visible .tl-card-more {
+    background: color-mix(in srgb, var(--tl-card-color) 16%, #fff);
+    transform: translateX(2px);
 }
 
 @media (max-width: 768px) {
