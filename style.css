@@ -8,6 +8,9 @@
     --border: #e9e4da;
     --accent: #2f6f5e; /* 森綠 */
     --accent-soft: #e6f3ee;
+    --blue: #315f92;
+    --plum: #7a4f6d;
+    --copper: #b26a3c;
     --code-bg: #f2efe8;
     --shadow-soft: 0 1px 0 rgba(0, 0, 0, 0.04);
     --shadow-card: 0 18px 46px rgba(42, 35, 25, 0.06);
@@ -260,8 +263,46 @@ h1, h2, h3 {
     color: var(--muted);
     font-size: 0.98rem;
     line-height: 1.8;
-    margin: 0 0 22px;
+    margin: 0 0 18px;
     max-width: 620px;
+}
+
+.hero-proof {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+    margin: 0 0 22px;
+    max-width: 660px;
+}
+
+.hero-proof-item {
+    border-left: 3px solid var(--accent);
+    padding: 4px 10px 5px 12px;
+    background: linear-gradient(90deg, rgba(47, 111, 94, 0.08), rgba(255, 255, 255, 0));
+}
+
+.hero-proof-item:nth-child(2) {
+    border-left-color: var(--blue);
+}
+
+.hero-proof-item:nth-child(3) {
+    border-left-color: var(--copper);
+}
+
+.hero-proof-item strong {
+    display: block;
+    color: var(--text);
+    font-size: 1.12rem;
+    line-height: 1.2;
+}
+
+.hero-proof-item span {
+    display: block;
+    color: var(--muted);
+    font-size: 0.82rem;
+    font-weight: 700;
+    line-height: 1.45;
+    margin-top: 3px;
 }
 
 .social-links a {
@@ -282,6 +323,123 @@ h1, h2, h3 {
 .social-links a:hover {
     background: var(--accent-soft);
     text-decoration: none;
+}
+
+.advantages-section {
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+    padding: 0;
+}
+
+.advantages-head {
+    display: grid;
+    grid-template-columns: minmax(220px, 0.72fr) minmax(0, 1fr);
+    gap: 18px 34px;
+    align-items: end;
+    margin-bottom: 16px;
+}
+
+.section-kicker {
+    color: var(--accent);
+    font-size: 0.76rem;
+    font-weight: 850;
+    letter-spacing: 0.08em;
+    line-height: 1.2;
+    margin: 0 0 7px;
+    text-transform: uppercase;
+}
+
+.advantages-head h2 {
+    font-size: clamp(1.65rem, 3vw, 2.25rem);
+    line-height: 1.18;
+    margin: 0;
+}
+
+.advantages-head p {
+    color: var(--muted);
+    font-size: 1rem;
+    line-height: 1.85;
+    margin: 0;
+}
+
+.advantage-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.advantage-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    box-shadow: var(--shadow-soft);
+    min-height: 216px;
+    padding: 18px;
+}
+
+.advantage-index {
+    color: var(--accent);
+    display: block;
+    font-size: 0.78rem;
+    font-weight: 850;
+    letter-spacing: 0.06em;
+    line-height: 1;
+    margin-bottom: 16px;
+}
+
+.advantage-card:nth-child(2) .advantage-index {
+    color: var(--blue);
+}
+
+.advantage-card:nth-child(3) .advantage-index {
+    color: var(--copper);
+}
+
+.advantage-card h3 {
+    font-size: 1.08rem;
+    line-height: 1.35;
+    margin: 0 0 10px;
+}
+
+.advantage-card p {
+    color: var(--muted);
+    font-size: 0.94rem;
+    line-height: 1.85;
+    margin: 0;
+}
+
+.fit-strip {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1px;
+    margin-top: 14px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--border);
+}
+
+.fit-strip > div {
+    background: rgba(255, 255, 255, 0.78);
+    padding: 16px 18px;
+}
+
+.fit-label {
+    color: var(--plum);
+    display: block;
+    font-size: 0.78rem;
+    font-weight: 850;
+    letter-spacing: 0.06em;
+    line-height: 1.2;
+    margin-bottom: 8px;
+}
+
+.fit-strip p {
+    color: var(--text);
+    font-size: 0.95rem;
+    line-height: 1.75;
+    margin: 0;
 }
 
 .profile-tabs {
@@ -384,9 +542,31 @@ h1, h2, h3 {
         margin-right: auto;
     }
 
+    .hero-proof {
+        grid-template-columns: 1fr;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 420px;
+        text-align: left;
+    }
+
     .social-links a {
         font-size: 0.92rem;
         margin: 4px;
+    }
+
+    .advantages-head,
+    .advantage-grid,
+    .fit-strip {
+        grid-template-columns: 1fr;
+    }
+
+    .advantages-head {
+        gap: 8px;
+    }
+
+    .advantage-card {
+        min-height: unset;
     }
 
     .main-content-flex {
