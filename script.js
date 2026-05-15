@@ -143,7 +143,7 @@ async function loadBlogPosts() {
     const postFiles = await loadPostFilenames();
     if (!postFiles || postFiles.length === 0) {
         blogPostsContainer.innerHTML =
-            '<p class="blog-error">沒有找到任何文章。請確認 `blog/posts.json` 內容是否正確。</p>';
+            '<p class="blog-error">目前沒有文章。可以先檢查 `blog/posts.json` 裡的清單。</p>';
         return;
     }
 
@@ -204,7 +204,7 @@ async function loadBlogPosts() {
     await renderPosts(initialSlice);
     if (totalLoaded === 0) {
         blogPostsContainer.innerHTML =
-            '<p class="blog-error">沒有載入任何文章。請檢查 `blog/posts.json` 的檔名是否與 blog 資料夾內的 .md 一致。</p>';
+            '<p class="blog-error">文章沒有載入成功。可以檢查 `blog/posts.json` 的檔名，是否和 blog 資料夾裡的 .md 檔一致。</p>';
         return;
     }
     if (nextIndex >= postFiles.length) {
@@ -248,7 +248,7 @@ async function displayBlogPost() {
         if (window.location.protocol === 'file:') {
             postTitleElement.innerText = '無法載入';
             postBodyElement.innerHTML =
-                '<p>請使用本機伺服器開啟網站（勿用檔案總管直接雙擊 HTML），才能讀取 blog 內的 Markdown。</p>';
+                '<p>要讀取 blog 裡的 Markdown，請用本機伺服器開啟網站，不要直接雙擊 HTML 檔。</p>';
             return;
         }
         try {
@@ -267,7 +267,7 @@ async function displayBlogPost() {
         }
     } else {
         postTitleElement.innerText = '文章未找到';
-        postBodyElement.innerHTML = '<p>請確認您是否有提供文章檔名。</p>';
+        postBodyElement.innerHTML = '<p>網址裡沒有指定文章檔名。</p>';
     }
 }
 
@@ -283,7 +283,7 @@ async function loadTimeline() {
 
         if (events.length === 0) {
             container.innerHTML =
-                '<p class="blog-error">找不到時間軸資料：`timeline.json` 內 events 為空。</p>';
+                '<p class="blog-error">找不到時間軸資料：`timeline.json` 裡的 events 是空的。</p>';
             return;
         }
 
@@ -375,7 +375,7 @@ async function loadTimeline() {
     } catch (err) {
         console.error(err);
         container.innerHTML =
-            '<p class="blog-error">時間軸載入失敗：請確認 `timeline.json` 是否存在且內容正確。</p>';
+            '<p class="blog-error">時間軸載入失敗。可以檢查 `timeline.json` 是否存在，內容是否能被讀取。</p>';
     }
 }
 
@@ -395,7 +395,7 @@ async function loadTimelineMultiTrack() {
 
         const events = Array.isArray(data.events) ? data.events : (Array.isArray(data) ? data : []);
         if (events.length === 0) {
-            root.innerHTML = '<p class="blog-error">找不到時間軸資料：`timeline.json` 的 events 為空。</p>';
+            root.innerHTML = '<p class="blog-error">找不到時間軸資料：`timeline.json` 裡的 events 是空的。</p>';
             return;
         }
 
@@ -609,7 +609,7 @@ async function loadTimelineMultiTrack() {
     } catch (err) {
         console.error(err);
         root.innerHTML =
-            '<p class="blog-error">時間軸載入失敗：請確認 `timeline.json` 是否存在且格式正確。</p>';
+            '<p class="blog-error">時間軸載入失敗。可以檢查 `timeline.json` 是否存在，格式是否正確。</p>';
     }
 }
 
@@ -623,7 +623,7 @@ async function loadAwardsProjectsTimeline() {
         const data = await loadTimelineData();
         const items = Array.isArray(data.awardsProjects) ? data.awardsProjects : [];
         if (!items.length) {
-            root.innerHTML = '<p class="blog-error">尚未建立得獎與專案資料。</p>';
+            root.innerHTML = '<p class="blog-error">目前還沒有得獎與專案資料。</p>';
             return;
         }
 

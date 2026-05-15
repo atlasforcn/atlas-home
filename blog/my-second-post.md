@@ -1,32 +1,15 @@
-# 我的第二篇部落格文章
+# 關於跨域這件事
 
-這是我個人網站上的**第二篇**部落格文章。
+「跨域」很容易被講得太漂亮，好像只要把幾個領域名詞放在一起，就自然會產生新的東西。實際做專案時，通常沒有那麼浪漫。
 
-在這篇文章中，我將探討一些關於前端開發的最新趨勢，特別是關於 [React Hooks] 的應用。
+我比較在意的是：不同背景的人能不能用同一套語言討論問題？工程限制有沒有被說清楚？外部期待有沒有被翻譯成可執行的工作？如果這些沒處理好，再好的題目也很容易卡住。
 
-## React Hooks 應用實例
+## 我目前的答案
 
-React Hooks 讓函數式組件也能擁有狀態和生命週期管理，大大簡化了組件的邏輯。
+這幾年在太空任務、資安社群與國際培訓裡，我慢慢形成一個工作方式：
 
-```javascript
-import React, { useState, useEffect } from 'react';
+- 先把真正的限制條件問出來。
+- 把專業語言翻成其他人能接住的說法。
+- 讓討論最後回到下一步、負責人與交付時間。
 
-function Counter() {
-  const [count, setCount] = useState(0);
-
-  useEffect(() => {
-    document.title = `You clicked ${count} times`;
-  });
-
-  return (
-    <div>
-      <p>You clicked {count} times</p>
-      <button onClick={() => setCount(count + 1)}>
-        Click me
-      </button>
-    </div>
-  );
-}
-```
-
-這只是冰山一角，Hooks 的應用還有很多潛力等待發掘。
+這聽起來不炫，但在真正複雜的任務裡，能把話說清楚、把事排清楚，常常就是專案能不能走下去的差別。
