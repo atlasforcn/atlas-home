@@ -33,7 +33,7 @@ document.querySelectorAll('nav a').forEach(anchor => {
 });
 
 
-const SUMMARY_CHAR_LEN = 20;
+const SUMMARY_CHAR_LEN = 88;
 
 /**
  * 目前頁面所在「目錄」的完整 URL（結尾為 /）。
@@ -728,11 +728,18 @@ function initProfileTabs() {
         });
     });
 
-    if (window.location.hash === '#blog') {
-        switchProfileTab('blog', false);
-    } else {
-        switchProfileTab('resume', false);
-    }
+    const syncProfileTabWithHash = () => {
+        if (window.location.hash === '#blog') {
+            switchProfileTab('blog', false);
+        } else if (window.location.hash === '#resume') {
+            switchProfileTab('resume', false);
+        } else {
+            switchProfileTab('resume', false);
+        }
+    };
+
+    syncProfileTabWithHash();
+    window.addEventListener('hashchange', syncProfileTabWithHash);
 }
 
 // Initialize based on the current page
