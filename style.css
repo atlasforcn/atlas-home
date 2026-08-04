@@ -33,6 +33,7 @@ a {
     color: var(--link);
     text-decoration: none;
     border-bottom: 1px solid rgba(34, 92, 139, 0.28);
+    overflow-wrap: anywhere;
 }
 
 a:hover {
@@ -95,7 +96,15 @@ body > main:not(.page):not(.resume-main):not(.post-main) {
 }
 
 .markdown-body {
-    overflow: auto;
+    max-width: 100%;
+    overflow: visible;
+}
+
+.markdown-body p,
+.markdown-body li,
+.markdown-body td {
+    overflow-wrap: anywhere;
+    word-break: normal;
 }
 
 .markdown-body .md-image {
@@ -113,6 +122,8 @@ body > main:not(.page):not(.resume-main):not(.post-main) {
     margin-top: 0;
     padding: 2px 0 12px;
     border-bottom: 2px solid var(--text);
+    overflow-wrap: normal;
+    word-break: keep-all;
 }
 
 .markdown-body h2 {
@@ -151,24 +162,28 @@ body > main:not(.page):not(.resume-main):not(.post-main) {
 .resume-table td {
     padding: 8px 9px;
     vertical-align: top;
+    line-height: 1.55;
+    overflow-wrap: anywhere;
+    word-break: normal;
 }
 
 .resume-table .resume-cell-0 {
     width: 18%;
     color: var(--muted);
-    font-weight: 800;
-    white-space: nowrap;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    white-space: normal;
 }
 
 .resume-table .resume-cell-1 {
     width: 27%;
-    font-weight: 800;
+    font-weight: 700;
 }
 
 .resume-table .resume-cell-2 {
     width: 22%;
     color: var(--accent);
-    font-weight: 800;
+    font-weight: 700;
 }
 
 .resume-table .resume-cell-3 {
@@ -335,6 +350,48 @@ footer {
     margin-top: 0;
 }
 
+@media (max-width: 760px) {
+    .resume-table,
+    .resume-table tbody,
+    .resume-table tr,
+    .resume-table td {
+        display: block;
+        width: 100% !important;
+    }
+
+    .resume-table {
+        border-top: 1px solid var(--line);
+        table-layout: auto;
+    }
+
+    .resume-table tr,
+    .resume-table tr:first-child {
+        padding: 8px 0;
+        border-top: 0;
+        border-bottom: 1px solid var(--line);
+    }
+
+    .resume-table td {
+        padding: 2px 0;
+        white-space: normal;
+    }
+
+    .resume-table td + td {
+        margin-top: 2px;
+    }
+
+    .resume-table td::before {
+        content: attr(data-label);
+        display: block;
+        width: auto;
+        margin-bottom: 1px;
+        color: var(--muted);
+        font-size: 0.76rem;
+        font-weight: 700;
+        line-height: 1.25;
+    }
+}
+
 @media (max-width: 640px) {
     body {
         font-size: 15px;
@@ -374,44 +431,27 @@ footer {
         min-height: 64px;
     }
 
-    .resume-table,
-    .resume-table tbody,
-    .resume-table tr,
-    .resume-table td {
-        display: block;
-        width: 100%;
-    }
-
-    .resume-table {
-        border-top: 1px solid var(--line);
-    }
-
-    .resume-table tr,
-    .resume-table tr:first-child {
-        padding: 8px 0;
-        border-top: 0;
-        border-bottom: 1px solid var(--line);
-    }
-
-    .resume-table td {
-        position: relative;
-        min-height: 1.45rem;
-        padding: 2px 0 2px 5.8rem;
-    }
-
-    .resume-table td::before {
-        content: attr(data-label);
-        position: absolute;
-        left: 0;
-        width: 5rem;
-        color: var(--muted);
-        font-size: 0.78rem;
-        font-weight: 800;
-    }
-
     .intro h1,
     .resume-title {
         font-size: 1.65rem;
+    }
+}
+
+@media (max-width: 360px) {
+    .markdown-body .md-image {
+        width: 56px;
+        height: 56px;
+        margin-right: 12px;
+    }
+
+    .markdown-body h1:first-of-type {
+        min-height: 56px;
+    }
+
+    .intro h1,
+    .resume-title,
+    .markdown-body h1:first-of-type {
+        font-size: 1.45rem;
     }
 }
 
