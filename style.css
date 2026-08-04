@@ -1,13 +1,13 @@
 /* Minimal personal resume site. */
 
 :root {
-    --bg: #f7f4ee;
-    --surface: #fffefa;
-    --text: #222222;
-    --muted: #666666;
-    --line: #d8d0c3;
-    --link: #225c8b;
-    --accent: #315f55;
+    --bg: #f1fbf7;
+    --surface: #fffef8;
+    --text: #172522;
+    --muted: #64716b;
+    --line: #bdd8cd;
+    --link: #b84e18;
+    --accent: #007c70;
     --serif: "Iowan Old Style", "Palatino Linotype", "Noto Serif TC", Georgia, serif;
     --sans: "Avenir Next", "Hiragino Sans", "Noto Sans TC", "Segoe UI", sans-serif;
 }
@@ -32,7 +32,7 @@ body {
 a {
     color: var(--link);
     text-decoration: none;
-    border-bottom: 1px solid rgba(34, 92, 139, 0.28);
+    border-bottom: 1px solid color-mix(in srgb, var(--link) 32%, transparent);
     overflow-wrap: anywhere;
 }
 
