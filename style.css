@@ -210,6 +210,8 @@ body > main:not(.page):not(.resume-main):not(.post-main) {
 
 .resume-table.cols-3 .resume-cell-2 {
     width: 48%;
+    color: var(--text);
+    font-weight: 600;
 }
 
 .loading {
