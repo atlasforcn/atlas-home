@@ -1,6 +1,7 @@
 # Atlas You Personal Website
 
 個人網站，整理航太專案管理、衛星通訊、資安社群、數位韌性培訓與國際協作經驗。
+目前首頁會讀取 `resume.md` 並渲染成接近純履歷的頁面，方便快速瀏覽做過的事情。
 
 ![網站目前預覽](assets/readme-preview.png)
 
@@ -15,10 +16,13 @@ python3 -m http.server 8000
 ```
 
 Open `http://127.0.0.1:8000/` in a browser.
+直接用 `file://` 開啟時，瀏覽器可能會阻擋首頁讀取 `resume.md`。
 
 ## Content
 
-- `index.html`: 首頁、快速理解、履歷時間軸與部落格入口
-- `timeline.json`: 履歷、專案與得獎資料
-- `blog/`: Markdown 部落格文章
-- `post.html`: Markdown 文章閱讀頁
+- `index.html`: 讀取 `resume.md` 的履歷首頁
+- `resume.html`: 同樣讀取 `resume.md` 的履歷頁
+- `resume.md`: 履歷內容來源
+- `style.css`: 簡潔文件式樣式
+- `script.js`: Markdown 載入與渲染
+- `blog/`, `post.html`, `timeline.json`: 舊版部落格與時間軸資料，首頁目前未載入
