@@ -112,17 +112,96 @@ function headingId(rawText, index) {
     return ascii || `section-${index}`;
 }
 
+function structuredParts(text) {
+    const parts = String(text || '')
+        .split('｜')
+        .map(part => part.trim())
+        .filter(Boolean);
+
+    if (parts.length < 2) return null;
+    if (parts.length <= 4) return parts;
+
+    return [
+        parts[0],
+        parts[1],
+        parts[2],
+        parts.slice(3).join('｜')
+    ];
+}
+
+function tableLabels(columnCount) {
+    if (columnCount === 2) return ['項目', '內容'];
+    if (columnCount === 3) return ['時間／項目', '單位／活動', '內容'];
+    return ['時間', '單位／活動', '職稱／成果', '說明'];
+}
+
+function renderStructuredTable(items) {
+    const columnCount = Math.max(...items.map(item => item.parts.length));
+    const labels = tableLabels(columnCount);
+    const rows = items.map(item => {
+        const cells = item.parts.slice();
+        while (cells.length < columnCount) cells.push('');
+
+        return '<tr>' + cells.map((cell, index) => {
+            return [
+                `<td class="resume-cell resume-cell-${index}" data-label="${escapeAttr(labels[index])}">`,
+                renderInline(cell),
+                '</td>'
+            ].join('');
+        }).join('') + '</tr>';
+    }).join('\n');
+
+    return `<table class="resume-table cols-${columnCount}"><tbody>${rows}</tbody></table>`;
+}
+
+function renderListItems(items) {
+    const output = [];
+    let index = 0;
+
+    while (index < items.length) {
+        const current = items[index];
+
+        if (!current.parts) {
+            const plainItems = [];
+            while (index < items.length && !items[index].parts) {
+                plainItems.push(items[index].text);
+                index += 1;
+            }
+            output.push('<ul>');
+            plainItems.forEach(text => {
+                output.push(`<li>${renderInline(text)}</li>`);
+            });
+            output.push('</ul>');
+            continue;
+        }
+
+        const columnCount = current.parts.length;
+        const tableItems = [];
+        while (
+            index < items.length &&
+            items[index].parts &&
+            items[index].parts.length === columnCount
+        ) {
+            tableItems.push(items[index]);
+            index += 1;
+        }
+        output.push(renderStructuredTable(tableItems));
+    }
+
+    return output.join('\n');
+}
+
 function markdownToHtml(markdown) {
     const lines = String(markdown || '').replace(/\r\n?/g, '\n').split('\n');
     const html = [];
     let paragraph = [];
-    let listOpen = false;
+    let listItems = [];
     let headingCount = 0;
 
-    const closeList = () => {
-        if (!listOpen) return;
-        html.push('</ul>');
-        listOpen = false;
+    const flushList = () => {
+        if (!listItems.length) return;
+        html.push(renderListItems(listItems));
+        listItems = [];
     };
 
     const flushParagraph = () => {
@@ -137,14 +216,14 @@ function markdownToHtml(markdown) {
 
         if (!line.trim()) {
             flushParagraph();
-            closeList();
+            flushList();
             continue;
         }
 
         const heading = line.match(/^(#{1,3})\s+(.+)$/);
         if (heading) {
             flushParagraph();
-            closeList();
+            flushList();
             headingCount += 1;
             const level = heading[1].length;
             const text = heading[2].trim();
@@ -156,19 +235,20 @@ function markdownToHtml(markdown) {
         const listItem = line.match(/^-\s+(.+)$/);
         if (listItem) {
             flushParagraph();
-            if (!listOpen) {
-                html.push('<ul>');
-                listOpen = true;
-            }
-            html.push(`<li>${renderInline(listItem[1].trim())}</li>`);
+            const text = listItem[1].trim();
+            listItems.push({
+                text,
+                parts: structuredParts(text)
+            });
             continue;
         }
 
+        flushList();
         paragraph.push(line);
     }
 
     flushParagraph();
-    closeList();
+    flushList();
     return html.join('\n');
 }
 
