@@ -1,4 +1,9 @@
-const RESUME_MD = 'resume.md';
+const resumeContainer = document.querySelector('[data-resume-source]');
+const RESUME_MD = resumeContainer ? resumeContainer.dataset.resumeSource : 'resume.md';
+
+function isEnglishPage() {
+    return /^en(?:-|$)/i.test(document.documentElement.lang || '');
+}
 
 function baseDirHref() {
     const url = new URL(window.location.href);
@@ -88,18 +93,31 @@ function headingId(rawText, index) {
     const text = rawText.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1').replace(/[*`]/g, '').trim();
     const knownIds = {
         'Atlas You｜游毓堂': 'top',
+        'Summary': 'summary',
         '個人摘要': 'summary',
+        'Awards & Honors': 'awards',
         '得獎與榮譽': 'awards',
+        'Development, Space & Cross-Disciplinary Competitions': 'awards-cross-domain',
         '開發、太空與跨域競賽': 'awards-cross-domain',
+        'Archery Team Competition Record': 'archery-awards',
         '射箭校隊競賽紀錄': 'archery-awards',
+        'Work Experience': 'experience',
         '工作經驗': 'experience',
+        'Community & Public Engagement': 'community',
         '社群與公共參與': 'community',
+        'Education': 'education',
         '教育背景': 'education',
+        'Publications & Research': 'publications',
         '著作與研究成果': 'publications',
+        'Projects & Research Directions': 'projects',
         '專案與研究方向': 'projects',
+        'International Exchange, Training & Certifications': 'training',
         '國際交流、培訓與證明': 'training',
+        'Talks, Speaking & Hosting': 'talks',
         '授課、演講與主持': 'talks',
+        'Language Skills': 'languages',
         '語言能力': 'languages',
+        'Core Capabilities': 'skills',
         '核心能力': 'skills'
     };
 
@@ -130,6 +148,12 @@ function structuredParts(text) {
 }
 
 function tableLabels(columnCount) {
+    if (isEnglishPage()) {
+        if (columnCount === 2) return ['Item', 'Details'];
+        if (columnCount === 3) return ['Time / Item', 'Organization / Event', 'Details'];
+        return ['Time', 'Organization / Event', 'Role / Outcome', 'Notes'];
+    }
+
     if (columnCount === 2) return ['項目', '內容'];
     if (columnCount === 3) return ['時間／項目', '單位／活動', '內容'];
     return ['時間', '單位／活動', '職稱／成果', '說明'];
@@ -252,7 +276,107 @@ function markdownToHtml(markdown) {
     return html.join('\n');
 }
 
+function enhanceResumeLayout(container) {
+    const title = container.querySelector('h1:first-of-type');
+    if (!title || title.closest('.resume-masthead')) return;
+
+    const portrait = container.querySelector('.md-image');
+    const portraitParagraph = portrait ? portrait.closest('p') : null;
+    const contact = title.nextElementSibling;
+    const lede = contact ? contact.nextElementSibling : null;
+
+    const masthead = document.createElement('header');
+    masthead.className = 'resume-masthead';
+
+    if (portraitParagraph) {
+        portraitParagraph.classList.add('portrait-frame');
+        masthead.appendChild(portraitParagraph);
+    }
+
+    const identity = document.createElement('div');
+    identity.className = 'resume-identity';
+
+    const [latinName, chineseName] = title.textContent.split('｜').map(part => part.trim());
+    if (latinName && chineseName) {
+        const latin = document.createElement('span');
+        latin.className = 'name-latin';
+        latin.textContent = latinName;
+
+        const divider = document.createElement('span');
+        divider.className = 'name-divider';
+        divider.setAttribute('aria-hidden', 'true');
+        divider.textContent = '／';
+
+        const chinese = document.createElement('span');
+        chinese.className = 'name-chinese';
+        chinese.textContent = chineseName;
+
+        title.replaceChildren(latin, divider, chinese);
+    }
+
+    identity.appendChild(title);
+
+    if (contact && contact.tagName === 'P') {
+        contact.classList.add('resume-contact-line');
+
+        const lines = [];
+        let line = document.createElement('span');
+        line.className = 'contact-item';
+
+        Array.from(contact.childNodes).forEach(node => {
+            if (node.nodeName === 'BR') {
+                if (line.childNodes.length) lines.push(line);
+                line = document.createElement('span');
+                line.className = 'contact-item';
+                return;
+            }
+            line.appendChild(node);
+        });
+        if (line.childNodes.length) lines.push(line);
+        contact.replaceChildren(...lines);
+
+        identity.appendChild(contact);
+    }
+
+    if (lede && lede.tagName === 'P') {
+        lede.classList.add('resume-lede');
+        identity.appendChild(lede);
+    }
+
+    masthead.appendChild(identity);
+    container.prepend(masthead);
+
+    const sectionHeadings = Array.from(container.querySelectorAll(':scope > h2'));
+    sectionHeadings.forEach((heading, index) => {
+        const section = document.createElement('section');
+        section.className = 'resume-section';
+        section.dataset.section = String(index + 1).padStart(2, '0');
+        heading.dataset.section = section.dataset.section;
+        container.insertBefore(section, heading);
+        section.appendChild(heading);
+
+        let sibling = section.nextSibling;
+        while (sibling && sibling.tagName !== 'H2') {
+            const next = sibling.nextSibling;
+            section.appendChild(sibling);
+            sibling = next;
+        }
+    });
+}
+
 function renderLoadError(container, path) {
+    if (isEnglishPage()) {
+        container.innerHTML = `
+            <h1 id="top">Unable to load the resume</h1>
+            <p>
+                This page reads <code>${escapeHtml(path)}</code>. Please open the site through a local server,
+                or check that the content file is available.
+            </p>
+            <p><a href="${escapeAttr(path)}">View the Markdown source</a></p>
+        `;
+        return;
+    }
+
     container.innerHTML = `
         <h1 id="top">Atlas You｜游毓堂</h1>
         <p>
@@ -274,6 +398,7 @@ async function loadResume() {
     try {
         const markdown = await fetchText(RESUME_MD);
         container.innerHTML = markdownToHtml(markdown);
+        enhanceResumeLayout(container);
 
         if (window.location.hash) {
             const id = decodeURIComponent(window.location.hash.slice(1));
@@ -288,7 +413,7 @@ async function loadResume() {
 
 function getTitleFromMarkdown(markdown) {
     const title = String(markdown || '').match(/^#\s+(.+)$/m);
-    return title ? title[1].trim() : '未命名文章';
+    return title ? title[1].trim() : (isEnglishPage() ? 'Untitled article' : '未命名文章');
 }
 
 function stripLeadingH1(markdown) {

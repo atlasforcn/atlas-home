@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atlas You｜主題色預覽</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        :root {
+            --preview-panel: rgba(255, 255, 255, 0.86);
+            --preview-shadow: rgba(34, 34, 34, 0.12);
+        }
+
+        body {
+            min-height: 100vh;
+        }
+
+        .theme-preview-layout {
+            display: grid;
+            grid-template-columns: minmax(260px, 320px) minmax(0, 1fr);
+            min-height: 100vh;
+        }
+
+        .theme-panel {
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            padding: 28px 22px;
+            overflow: auto;
+            background:
+                linear-gradient(180deg, rgba(255, 255, 255, 0.72), rgba(255, 255, 255, 0.46)),
+                var(--bg);
+            border-right: 1px solid var(--line);
+        }
+
+        .theme-panel h1 {
+            margin: 0 0 8px;
+            font-family: var(--serif);
+            font-size: 1.55rem;
+        }
+
+        .theme-panel p {
+            margin-bottom: 18px;
+            color: var(--muted);
+            font-size: 0.92rem;
+        }
+
+        .theme-list {
+            display: grid;
+            gap: 10px;
+        }
+
+        .theme-option {
+            width: 100%;
+            padding: 12px;
+            color: var(--text);
+            text-align: left;
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            cursor: pointer;
+            box-shadow: 0 8px 24px var(--preview-shadow);
+        }
+
+        .theme-option[aria-pressed="true"] {
+            border-color: var(--accent);
+            outline: 2px solid color-mix(in srgb, var(--accent) 22%, transparent);
+        }
+
+        .theme-option strong {
+            display: block;
+            margin-bottom: 4px;
+            font-size: 0.95rem;
+        }
+
+        .theme-option span {
+            display: block;
+            color: var(--muted);
+            font-size: 0.78rem;
+            line-height: 1.45;
+        }
+
+        .swatches {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 4px;
+            margin-top: 10px;
+        }
+
+        .swatch {
+            height: 18px;
+            border: 1px solid rgba(0, 0, 0, 0.12);
+            border-radius: 3px;
+        }
+
+        .theme-meta {
+            margin-top: 18px;
+            padding-top: 16px;
+            border-top: 1px solid var(--line);
+        }
+
+        .theme-meta dl {
+            display: grid;
+            grid-template-columns: 4.5rem 1fr;
+            gap: 6px 10px;
+            margin: 0;
+            font-size: 0.82rem;
+        }
+
+        .theme-meta dt {
+            color: var(--muted);
+            font-weight: 700;
+        }
+
+        .theme-meta dd {
+            margin: 0;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        }
+
+        .theme-preview-stage {
+            padding: 28px 20px 40px;
+        }
+
+        .theme-preview-stage .page {
+            box-shadow: 0 20px 70px var(--preview-shadow);
+        }
+
+        .theme-preview-stage a {
+            border-bottom-color: color-mix(in srgb, var(--link) 30%, transparent);
+        }
+
+        .theme-preview-stage .markdown-body code {
+            background: color-mix(in srgb, var(--line) 35%, var(--surface));
+        }
+
+        @media (max-width: 900px) {
+            .theme-preview-layout {
+                display: block;
+            }
+
+            .theme-panel {
+                position: static;
+                height: auto;
+                padding: 20px 18px;
+                border-right: 0;
+                border-bottom: 1px solid var(--line);
+            }
+
+            .theme-list {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .theme-preview-stage {
+                padding: 18px 0 32px;
+            }
+        }
+
+        @media (max-width: 560px) {
+            .theme-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="theme-preview-layout">
+        <aside class="theme-panel" aria-label="主題色選擇">
+            <h1>主題色預覽</h1>
+            <p>點選色票可套用到右側履歷預覽；目前不會影響正式頁。</p>
+            <div id="theme-list" class="theme-list"></div>
+            <div class="theme-meta" aria-live="polite">
+                <dl id="theme-meta"></dl>
+            </div>
+        </aside>
+
+        <main class="theme-preview-stage">
+            <article id="theme-resume-content" class="page markdown-body" aria-live="polite">
+                <img class="md-image" src="profile_picture.jpg" alt="Atlas You 個人照片">
+
+                <h1 id="top">Atlas You｜游毓堂</h1>
+
+                <p>Name: 游毓堂<br>
+                Email: <a href="mailto:vandcfuture@gmail.com">vandcfuture@gmail.com</a><br>
+                GitHub: <a href="https://github.com/atlasforcn">atlasforcn</a><br>
+                Website: <a href="https://atlasforcn.github.io/atlas-home/">atlas-home</a></p>
+
+                <p><strong>航太計畫專案管理、衛星通訊、資安社群、數位韌性培訓與國際協作。</strong></p>
+
+                <h2>個人摘要</h2>
+                <p>具備太空任務、衛星通訊、資訊安全社群與跨域專案管理經驗。</p>
+                <p>曾於國家太空中心參與立方衛星計畫，負責任務週期、時程管理、技術意見、系統整合與跨單位協作。</p>
+                <p>創辦星希科技，推動衛星技術、教育服務與太空產業相關專案。</p>
+
+                <h2>授課、演講與主持</h2>
+                <table class="resume-table cols-4">
+                    <tbody>
+                        <tr>
+                            <td class="resume-cell resume-cell-0" data-label="時間">2025</td>
+                            <td class="resume-cell resume-cell-1" data-label="單位／活動">史瓦帝尼數位韌性與資安英文訓練</td>
+                            <td class="resume-cell resume-cell-2" data-label="職稱／成果">英文授課／專題演講</td>
+                            <td class="resume-cell resume-cell-3" data-label="說明">五天工作坊，共六堂課。</td>
+                        </tr>
+                        <tr>
+                            <td class="resume-cell resume-cell-0" data-label="時間">2025</td>
+                            <td class="resume-cell resume-cell-1" data-label="單位／活動">TEDx</td>
+                            <td class="resume-cell resume-cell-2" data-label="職稱／成果">英語講者</td>
+                            <td class="resume-cell resume-cell-3" data-label="說明">以「我想成為一個太空人」為主題進行英文分享。</td>
+                        </tr>
+                        <tr>
+                            <td class="resume-cell resume-cell-0" data-label="時間">2024</td>
+                            <td class="resume-cell resume-cell-1" data-label="單位／活動">HITCON CMT</td>
+                            <td class="resume-cell resume-cell-2" data-label="職稱／成果">總召集人</td>
+                            <td class="resume-cell resume-cell-3" data-label="說明">開閉幕主持、閃電講主持。</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h2>得獎與榮譽</h2>
+                <h3>開發、太空與跨域競賽</h3>
+                <table class="resume-table cols-4">
+                    <tbody>
+                        <tr>
+                            <td class="resume-cell resume-cell-0" data-label="時間">2025</td>
+                            <td class="resume-cell resume-cell-1" data-label="單位／活動">新竹政策黑客松</td>
+                            <td class="resume-cell resume-cell-2" data-label="職稱／成果">第三名</td>
+                            <td class="resume-cell resume-cell-3" data-label="說明">市民事件回報系統，結合地圖與 AI 問答輔助民眾描述問題。</td>
+                        </tr>
+                        <tr>
+                            <td class="resume-cell resume-cell-0" data-label="時間">2023</td>
+                            <td class="resume-cell resume-cell-1" data-label="單位／活動">ETHTaipei</td>
+                            <td class="resume-cell resume-cell-2" data-label="職稱／成果">Gnosis 金牌、PSE 特別獎</td>
+                            <td class="resume-cell resume-cell-3" data-label="說明">StatVoting，零知識證明區塊鏈投票機制。</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h2>教育背景</h2>
+                <table class="resume-table cols-4">
+                    <tbody>
+                        <tr>
+                            <td class="resume-cell resume-cell-0" data-label="時間">2018-2022</td>
+                            <td class="resume-cell resume-cell-1" data-label="單位／活動">國立陽明交通大學</td>
+                            <td class="resume-cell resume-cell-2" data-label="職稱／成果">百川學士學位學程</td>
+                            <td class="resume-cell resume-cell-3" data-label="說明">修習傳播、資工、電機、太空工程、生物與企管。</td>
+                        </tr>
+                        <tr>
+                            <td class="resume-cell resume-cell-0" data-label="時間">2014-2016</td>
+                            <td class="resume-cell resume-cell-1" data-label="單位／活動">Bellevue College</td>
+                            <td class="resume-cell resume-cell-2" data-label="職稱／成果">Art and Science Track 副學士</td>
+                            <td class="resume-cell resume-cell-3" data-label="說明">修習生物、化學、商業、經濟、微積分與程式設計。</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h2>專案與研究方向</h2>
+                <table class="resume-table cols-3">
+                    <tbody>
+                        <tr>
+                            <td class="resume-cell resume-cell-0" data-label="時間／項目">學生火箭標準化平台</td>
+                            <td class="resume-cell resume-cell-1" data-label="單位／活動">低空、亞音速學生火箭模組化平台</td>
+                            <td class="resume-cell resume-cell-2" data-label="內容">關注酬載、控制、結構、回收介面與標準零件庫。</td>
+                        </tr>
+                        <tr>
+                            <td class="resume-cell resume-cell-0" data-label="時間／項目">太空通訊與跨層協調</td>
+                            <td class="resume-cell resume-cell-1" data-label="單位／活動">太空與通訊系統研究</td>
+                            <td class="resume-cell resume-cell-2" data-label="內容">關注 RF / optical link、地對太空通訊、資料可靠性與多層網路協同。</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </article>
+        </main>
+    </div>
+
+    <script src="theme-preview.js"></script>
+</body>
+</html>

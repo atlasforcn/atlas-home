@@ -8,6 +8,7 @@
 ## Online
 
 - GitHub Pages: https://atlasforcn.github.io/atlas-home/
+- English resume: https://atlasforcn.github.io/atlas-home/en/
 
 ## Local Preview
 
@@ -23,6 +24,7 @@ Open `http://127.0.0.1:8000/` in a browser.
 - `index.html`: 讀取 `resume.md` 的履歷首頁
 - `resume.html`: 同樣讀取 `resume.md` 的履歷頁
 - `resume.md`: 履歷內容來源
+- `resume-en.md`: English resume content source
 - `style.css`: 簡潔文件式樣式
 - `script.js`: Markdown 載入與渲染
 - `blog/`, `post.html`, `timeline.json`: 舊版部落格與時間軸資料，首頁目前未載入
