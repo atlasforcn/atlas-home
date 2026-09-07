@@ -1,4 +1,4 @@
-![Atlas You portrait](../profile_picture.jpg)
+![Atlas You portrait](../assets/profile-portrait.jpg)
 
 # Atlas You｜游毓堂
 
@@ -12,13 +12,40 @@ Aerospace program management, satellite communications, cybersecurity communitie
 ## Summary
 
 Experience across space missions, satellite communications, cybersecurity communities, and cross-disciplinary program management.
-At Taiwan's National Space Organization, worked on CubeSat programs with responsibility for mission lifecycle planning, schedules, technical coordination, systems integration, and cross-team collaboration.
+At the Taiwan Space Agency (formerly NSPO), worked on CubeSat programs with responsibility for mission lifecycle planning, schedules, technical coordination, systems integration, and cross-team collaboration.
 
 Founded Starwish Technology to develop projects in satellite technology, education services, and the space industry. Also involved in HITCON CMT, SITCON, Hsinchu youth advisory work, international exchange, and digital resilience training.
 
+## Projects & Research Directions
+
+### ONGLAISAT
+
+**From 6U embedded-system mode design to an Earth-observation mission in orbit.**
+
+**My contribution:** Developed the 6U CubeSat embedded-system mode design as a university project, covering state machines, operating modes, functional management, requirements clarification, and program management. The project later evolved into ONGLAISAT.
+
+**Mission results:** Jointly developed by TASA, the University of Tokyo, and ArkEdge Space, ONGLAISAT achieved 2.44-meter ground resolution on a 6U platform and conducted more than 100 imaging operations over approximately two months after commissioning. [Mission technical results](https://sites.google.com/aiaa-smstc.org/moty/2026-mission-of-the-year-finalists)
+
+**Team recognition:** The ONGLAISAT mission received the **2026 AIAA Small Satellite Mission of the Year Award** for its on-orbit achievements in 2025. [Official award announcement](https://arkedgespace.com/en/news/2026-08-28_ssmoty)
+
+### Other Projects & Research
+
+- UMAL: Universal Mission Abstraction Layer｜Earth-observation mission abstraction layer｜Connects event requirements, mission scheduling, coordination, and data retrieval; submitted to a German space start-up competition.
+- Workshop Instructor — Digital Resilience and Cybersecurity in Eswatini｜English-language instruction｜Served as an instructor in Eswatini, delivering a five-day digital resilience and cybersecurity workshop with six sessions taught in English, covering cybersecurity, communications security, and anti-fraud awareness.
+- G-9-2: Digital Resilience × Youth Action｜Ministry of Education Youth Overseas Dream Fund｜Completed field observation in France and submitted a cybersecurity governance report.
+- Cross-disciplinary projects｜Smart IoT greenhouse, real-time earthquake disaster reporting, and local culture promotion｜Also includes analysis projects in financial machine learning, biotechnology, and IoT.
+
+## Work Experience
+
+- 2022.12–2026.06｜Taiwan Space Agency (formerly NSPO)｜Technical program manager, CubeSat Program Office｜Owned mission schedules, lifecycle planning, technical discussions, and cross-team coordination.
+- 2020–｜Starwish Technology Co., Ltd.｜Founder｜Continuing to operate services and projects in space education, satellite technology, radio, IoT, and cybersecurity education.
+- 2020–2021｜Star Capital｜Education industry research intern｜Conducted education-industry evaluation, stakeholder interviews, market analysis, and project reporting.
+- 2020｜National Space Organization｜Project intern｜Designed and managed an embedded-systems project for a 6U CubeSat, including program management and final reporting.
+- 2018.03–2018.07｜Azuro Republic｜Fashion jewelry brand intern｜Supported digital traffic, Pinterest content, and OEM / ODM business development.
+
 ## Talks, Speaking & Hosting
 
-- 2025｜Eswatini Digital Resilience and Cybersecurity Training｜English instructor / keynote speaker｜Five-day workshop with six sessions.
+- 2025｜Eswatini Digital Resilience and Cybersecurity Workshop｜Instructor / speaker (English-language delivery)｜Traveled to Eswatini as an instructor and taught six sessions in English during a five-day workshop.
 - 2025｜TEDx｜English speaker｜Shared a talk in English on the theme “I want to become an astronaut.”
 - 2025｜HITCON｜Lightning Talk host｜Hosted the lightning-talk showcase.
 - 2024｜HITCON CMT｜General coordinator｜Hosted the opening, closing, and lightning-talk sessions.
@@ -31,7 +58,23 @@ Founded Starwish Technology to develop projects in satellite technology, educati
 - 2023–2025｜HITCON｜Travel liaison and interpreter for international speakers｜Supported overseas speakers with travel coordination and communication in Taiwan.
 - 2017｜Kingdoms and Castles｜Traditional Chinese translator and editor｜Contributed to the game's Chinese localization.
 
+## Community & Public Engagement
+
+- 2025｜PyCon｜Photography team member｜Supported event photography and visual documentation.
+- 2024–2025｜HITCON Community Taiwan｜General coordinator / Lightning Talk host｜General coordinator in 2024; lightning-talk host in 2025.
+- 2024｜ISPAC｜Conference advisor｜Supported student rocket propulsion, standardization, and research presentations.
+- 2022–2025｜Hsinchu City Youth Affairs Committee｜Committee member, second and third terms｜Contributed policy recommendations on sustainability, technology policy, and youth participation.
+- 2021–2022｜NYCU Student Association Chiao Tung Campus｜President｜Led orientation materials, club fair, anniversary concert, and Meichu esports programming.
+- 2021｜9th SITCON｜General coordinator｜Led event decisions; moved the event online during the pandemic and reached more than 24,000 views.
+- 2019–2020｜NCTU Student Parliament｜Student representative｜Represented students on university committees and raised student concerns with the administration.
+- 2016｜SUNY Stony Brook｜International student ambassador and Chinese student events coordinator｜Helped international students adapt to campus and built a communications network for incoming Chinese-speaking students.
+- 2015–2016｜Bellevue College｜International student ambassador and treasurer of the Asian Pacific Student Association｜Supported events, Chinese interpretation, and financial administration.
+
 ## Awards & Honors
+
+### Mission Team Recognition
+
+- 2026｜ONGLAISAT mission team｜AIAA Small Satellite Mission of the Year Award｜Contributed to the early 6U embedded-system mode design; [project and contribution](#onglaisat).
 
 ### Development, Space & Cross-Disciplinary Competitions
 
@@ -57,43 +100,15 @@ Founded Starwish Technology to develop projects in satellite technology, educati
 - Team 30-meter event｜Champion.
 - University archery team｜Retired after a shoulder injury.
 
-## Work Experience
+## Publications & Research
 
-- 2022.12–2026.06｜National Space Organization｜Technical program manager, CubeSat Program Office｜Owned mission schedules, lifecycle planning, technical discussions, and cross-team coordination.
-- 2020–｜Starwish Technology Co., Ltd.｜Founder｜Continuing to operate services and projects in space education, satellite technology, radio, IoT, and cybersecurity education.
-- 2020–2021｜Star Capital｜Education industry research intern｜Conducted education-industry evaluation, stakeholder interviews, market analysis, and project reporting.
-- 2020｜National Space Organization｜Project intern｜Designed and managed an embedded-systems project for a 6U CubeSat, including program management and final reporting.
-- 2018.03–2018.07｜Azuro Republic｜Fashion jewelry brand intern｜Supported digital traffic, Pinterest content, and OEM / ODM business development.
-
-## Community & Public Engagement
-
-- 2025｜PyCon｜Photography team member｜Supported event photography and visual documentation.
-- 2024–2025｜HITCON Community Taiwan｜General coordinator / Lightning Talk host｜General coordinator in 2024; lightning-talk host in 2025.
-- 2024｜ISPAC｜Conference advisor｜Supported student rocket propulsion, standardization, and research presentations.
-- 2022–2025｜Hsinchu City Youth Affairs Committee｜Committee member, second and third terms｜Contributed policy recommendations on sustainability, technology policy, and youth participation.
-- 2021–2022｜NYCU Student Association, Transportation Division｜President｜Led orientation materials, club fair, anniversary concert, and Meichu esports programming.
-- 2021｜9th SITCON｜General coordinator｜Led event decisions; moved the event online during the pandemic and reached more than 24,000 views.
-- 2019–2020｜NCTU Student Parliament｜Student representative｜Represented students on university committees and raised student concerns with the administration.
-- 2016｜SUNY Stony Brook｜International student ambassador and Chinese student events coordinator｜Helped international students adapt to campus and built a communications network for incoming Chinese-speaking students.
-- 2015–2016｜Bellevue College｜International student ambassador and treasurer of the Asian Pacific Student Association｜Supported events, Chinese interpretation, and financial administration.
+- 2022｜AIED｜Preliminary Design of an AI Service to Assist Self-regulated Learning by Edge Computing｜Third author; LNCS pp. 577–581, DOI: [10.1007/978-3-031-11647-6_119](https://doi.org/10.1007/978-3-031-11647-6_119).
 
 ## Education
 
-- 2018–2022｜National Yang Ming Chiao Tung University｜Interdisciplinary Program of Baichuan Honors｜Studied communications, computer science, electrical engineering, space engineering, biology, and business administration.
+- 2018–2022｜National Yang Ming Chiao Tung University｜Arete Honors Program｜Studied communications, computer science, electrical engineering, space engineering, biology, and business administration.
 - 2016｜SUNY Stony Brook｜Biotechnology｜Transferred from Bellevue College before returning to Taiwan.
 - 2014–2016｜Bellevue College｜Associate degree, Art and Science Track｜Studied biology, chemistry, business, economics, calculus, and programming.
-
-## Publications & Research
-
-- 2022｜AIED｜AI Service to Assist Self-regulated Learning｜Third author; LNCS pp. 577–581, DOI: 10.1007/978-3-031-11647-6_119.
-
-## Projects & Research Directions
-
-- UMAL: Universal Mission Abstraction Layer｜Earth-observation mission abstraction layer｜Connects event requirements, mission scheduling, coordination, and data retrieval; submitted to a German space start-up competition.
-- 6U CubeSat Embedded-System Mode Design｜6U satellite state machine and operating modes｜Covers functional management, requirements clarification, and program management; began as a university project, became a JAXA research project, and completed its space mission in 2025.
-- Eswatini Digital Resilience and Cybersecurity Training｜Digital resilience and cybersecurity training in English｜Five-day workshop with six sessions covering cybersecurity, communications security, and anti-fraud awareness.
-- G-9-2: Digital Resilience × Youth Action｜Ministry of Education Youth Overseas Dream Fund｜Completed field observation in France and submitted a cybersecurity governance report.
-- Cross-disciplinary projects｜Smart IoT greenhouse, real-time earthquake disaster reporting, and local culture promotion｜Also includes analysis projects in financial machine learning, biotechnology, and IoT.
 
 ## International Exchange, Training & Certifications
 
