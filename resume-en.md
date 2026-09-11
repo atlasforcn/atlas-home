@@ -81,6 +81,7 @@ Founded Starwish Technology to develop projects in satellite technology, educati
 - 2025｜Hsinchu Policy Hackathon｜Third place｜Civic incident reporting system combining maps and AI-assisted issue descriptions.
 - 2023｜ETHTaipei｜Gnosis Gold Prize and PSE Special Award｜StatVoting, a zero-knowledge-proof blockchain voting mechanism.
 - 2023｜NASA Space Apps Challenge｜Women in Space Award｜Space-colony construction and management strategy game.
+- 2023｜Taiwan International Conference on Ocean Governance｜Third Place, Ocean Engineering Paper Award (co-author)｜Co-authored *The Development and Prospect of O-RAN Integrated LEO Satellite Communication System for Marine Vessel* with Hsiu-Chi Tsai and teammates. [Paper and author record](https://www.researchgate.net/publication/369358314_The_Development_and_Prospect_of_O-RAN_Integrated_LEO_Satellite_Communication_System_for_Marine_Vessel)
 - 2022｜Outstanding College Youth｜Selected recipient｜Recognized for public service and social participation.
 - 2022｜Chatbot Design Competition｜Third place｜LLM-based AI companion system.
 - 2022｜NASA Space Apps Challenge｜MediaTek Special Award｜Variable-star simulation and observation project.
@@ -114,7 +115,7 @@ Founded Starwish Technology to develop projects in satellite technology, educati
 
 - 2025｜JAXA Tanegashima Space Center｜Site visit｜Deepened understanding of space missions, launch sites, and Earth observation.
 - 2025｜Singapore youth exchange / TEDx English talk｜Representative / English speaker｜Represented Hsinchu City in an international youth exchange and shared technical knowledge in English.
-- 2025｜NASA Fundamentals of Remote Sensing｜Certificate｜Completed the course to strengthen the application of scientific data and Earth-observation knowledge.
+- 2025｜NASA Fundamentals of Remote Sensing｜Certificate｜Completed NASA's Applied Remote Sensing Training (ARSET) Fundamentals of Remote Sensing course to strengthen the application of scientific data and Earth-observation knowledge. [View certificate](../assets/certificates/nasa-arset-remote-sensing.pdf)
 - 2019｜Hsinchu Science Park Industry Training Association｜IoT training certificate｜Training in Python and App Inventor.
 - 2016｜TOEIC Gold Certificate｜English proficiency certificate｜Expired due to age.
 

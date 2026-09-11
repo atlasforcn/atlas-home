@@ -82,6 +82,7 @@ Website: [atlas-home](https://atlasforcn.github.io/atlas-home/)
 - 2025｜新竹政策黑客松｜第三名｜市民事件回報系統，結合地圖與 AI 問答輔助民眾描述問題。
 - 2023｜ETHTaipei｜Gnosis 金牌、PSE 特別獎｜StatVoting，零知識證明區塊鏈投票機制。
 - 2023｜NASA 黑客松｜女力獎｜太空殖民地建設管理策略遊戲。
+- 2023｜臺灣海洋治理國際研討會｜海洋工程組論文獎第三名（共同作者）｜與蔡秀吉等隊友共同完成 *The Development and Prospect of O-RAN Integrated LEO Satellite Communication System for Marine Vessel*。[論文與作者資料](https://www.researchgate.net/publication/369358314_The_Development_and_Prospect_of_O-RAN_Integrated_LEO_Satellite_Communication_System_for_Marine_Vessel)
 - 2022｜大專優秀青年｜獲選｜因公共服務與社會參與獲選。
 - 2022｜對話機器人設計大賽｜第三名｜LLM 為底的人工智慧陪伴系統。
 - 2022｜NASA 黑客松｜聯發科特別獎｜Variable star 模擬與觀測。
@@ -115,7 +116,7 @@ Website: [atlas-home](https://atlasforcn.github.io/atlas-home/)
 
 - 2025｜日本 JAXA 種子島宇宙中心｜參訪｜深化太空任務、發射場域與地球觀測理解。
 - 2025｜新加坡青年交流／TEDx 英語分享｜代表／英語分享｜代表新竹市參與國際青年交流與英文技術分享。
-- 2025｜NASA Fundamentals of Remote Sensing｜證書｜完成課程，補強科學資料應用與地球觀測理解。
+- 2025｜NASA Fundamentals of Remote Sensing｜證書｜完成 NASA Applied Remote Sensing Training (ARSET) 的 Fundamentals of Remote Sensing 課程，補強科學資料應用與地球觀測理解。[查看證書](assets/certificates/nasa-arset-remote-sensing.pdf)
 - 2019｜新竹科學園區產訓協會｜物聯網培訓證明｜Python 與 App Inventor 相關培訓。
 - 2016｜TOEIC 多益金色證書｜英文能力證明｜年代已久，現已失效。
 

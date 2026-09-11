@@ -27,6 +27,7 @@ Open `http://127.0.0.1:8000/` in a browser.
 - `resume.md`: 履歷內容來源
 - `resume-en.md`: English resume content source
 - `assets/profile-portrait.jpg`: 中英文履歷使用的 528 × 528 壓縮頭像；`profile_picture.jpg` 保留作為原圖
+- `assets/certificates/nasa-arset-remote-sensing.pdf`: NASA ARSET Fundamentals of Remote Sensing 完課證書
 - `style.css`: 簡潔文件式樣式
 - `script.js`: Markdown 載入與渲染
 - `blog/`, `post.html`, `timeline.json`: 舊版部落格與時間軸資料，首頁目前未載入
