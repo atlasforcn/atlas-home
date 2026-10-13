@@ -85,6 +85,7 @@ function renderInline(value) {
 
     let html = escapeHtml(text);
     html = html.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+    html = html.replace(/\*([^*]+)\*/g, '<em>$1</em>');
     html = html.replace(/@@MDTOKEN(\d+)@@/g, (_, index) => tokens[Number(index)] || '');
     return html;
 }
@@ -97,6 +98,8 @@ function headingId(rawText, index) {
         '個人摘要': 'summary',
         'Awards & Honors': 'awards',
         '得獎與榮譽': 'awards',
+        'Mission Team Recognition': 'mission-team-recognition',
+        '任務團隊榮譽': 'mission-team-recognition',
         'Development, Space & Cross-Disciplinary Competitions': 'awards-cross-domain',
         '開發、太空與跨域競賽': 'awards-cross-domain',
         'Archery Team Competition Record': 'archery-awards',
@@ -111,6 +114,12 @@ function headingId(rawText, index) {
         '著作與研究成果': 'publications',
         'Projects & Research Directions': 'projects',
         '專案與研究方向': 'projects',
+        'ONGLAISAT': 'onglaisat',
+        '旺來衛星 ONGLAISAT': 'onglaisat',
+        '6U CubeSat Embedded-System University Project': 'cubesat-study',
+        '6U 立方衛星嵌入式系統專題': 'cubesat-study',
+        'Other Projects & Research': 'other-projects',
+        '其他專案與研究': 'other-projects',
         'International Exchange, Training & Certifications': 'training',
         '國際交流、培訓與證明': 'training',
         'Talks, Speaking & Hosting': 'talks',
@@ -147,8 +156,8 @@ function structuredParts(text) {
     ];
 }
 
-function tableLabels(columnCount) {
-    if (isEnglishPage()) {
+function tableLabels(columnCount, language) {
+    if (/^en(?:-|$)/i.test(language)) {
         if (columnCount === 2) return ['Item', 'Details'];
         if (columnCount === 3) return ['Time / Item', 'Organization / Event', 'Details'];
         return ['Time', 'Organization / Event', 'Role / Outcome', 'Notes'];
@@ -159,9 +168,9 @@ function tableLabels(columnCount) {
     return ['時間', '單位／活動', '職稱／成果', '說明'];
 }
 
-function renderStructuredTable(items) {
+function renderStructuredTable(items, language) {
     const columnCount = Math.max(...items.map(item => item.parts.length));
-    const labels = tableLabels(columnCount);
+    const labels = tableLabels(columnCount, language);
     const rows = items.map(item => {
         const cells = item.parts.slice();
         while (cells.length < columnCount) cells.push('');
@@ -178,7 +187,7 @@ function renderStructuredTable(items) {
     return `<table class="resume-table cols-${columnCount}"><tbody>${rows}</tbody></table>`;
 }
 
-function renderListItems(items) {
+function renderListItems(items, language) {
     const output = [];
     let index = 0;
 
@@ -209,13 +218,13 @@ function renderListItems(items) {
             tableItems.push(items[index]);
             index += 1;
         }
-        output.push(renderStructuredTable(tableItems));
+        output.push(renderStructuredTable(tableItems, language));
     }
 
     return output.join('\n');
 }
 
-function markdownToHtml(markdown) {
+function markdownToHtml(markdown, language = document.documentElement.lang || '') {
     const lines = String(markdown || '').replace(/\r\n?/g, '\n').split('\n');
     const html = [];
     let paragraph = [];
@@ -224,7 +233,7 @@ function markdownToHtml(markdown) {
 
     const flushList = () => {
         if (!listItems.length) return;
-        html.push(renderListItems(listItems));
+        html.push(renderListItems(listItems, language));
         listItems = [];
     };
 
@@ -350,6 +359,7 @@ function enhanceResumeLayout(container) {
     sectionHeadings.forEach((heading, index) => {
         const section = document.createElement('section');
         section.className = 'resume-section';
+        section.setAttribute('aria-labelledby', heading.id);
         section.dataset.section = String(index + 1).padStart(2, '0');
         heading.dataset.section = section.dataset.section;
         container.insertBefore(section, heading);
@@ -364,30 +374,51 @@ function enhanceResumeLayout(container) {
     });
 }
 
+function renderResumeDetails(markdown, language = 'zh-Hant') {
+    // The build and browser share this renderer. Its input is our generated HTML,
+    // whose h2 boundaries are predictable and whose text is already escaped.
+    const sections = new Map();
+    const rendered = markdownToHtml(markdown, language);
+    for (const match of rendered.matchAll(/<h2 id="([^"]+)">([\s\S]*?)<\/h2>([\s\S]*?)(?=<h2 id="|$)/g)) {
+        sections.set(match[1], { title: match[2], body: match[3] });
+    }
+
+    // The introduction and work history already appear above the homepage details.
+    const order = ['awards', 'talks', 'community', 'projects', 'publications', 'education', 'training', 'languages', 'skills'];
+    const aliases = { community: 'community-history', projects: 'research-projects' };
+    return order.filter(id => sections.has(id)).map((sourceId, index) => {
+        let { title, body } = sections.get(sourceId);
+        if (sourceId === 'projects') {
+            // The university project already appears in selected work above.
+            const otherProjects = body.match(/<h3 id="other-projects">([\s\S]*?)<\/h3>/);
+            if (otherProjects) {
+                body = body.slice(otherProjects.index + otherProjects[0].length);
+                title = otherProjects[1];
+            }
+        }
+        const id = aliases[sourceId] || sourceId;
+        const number = String(index + 1).padStart(2, '0');
+        body = body.replace(/<(\/?)h3(?=[ >])/g, '<$1h4').trim();
+        return `<section class="resume-section" aria-labelledby="${escapeAttr(id)}" data-section="${number}">\n` +
+            `<h3 id="${escapeAttr(id)}" data-section="${number}">${title}</h3>\n${body}\n</section>`;
+    }).join('\n');
+}
+
 function renderLoadError(container, path) {
+    const headingTag = container.dataset.resumeMode === 'details' ? 'h3' : 'h1';
     if (isEnglishPage()) {
         container.innerHTML = `
-            <h1 id="top">Unable to load the resume</h1>
-            <p>
-                This page reads <code>${escapeHtml(path)}</code>. Please open the site through a local server,
-                or check that the content file is available.
-            </p>
-            <p><a href="${escapeAttr(path)}">View the Markdown source</a></p>
+            <${headingTag}>The résumé is temporarily unavailable</${headingTag}>
+            <p>Please try refreshing the page, or read the text version below.</p>
+            <p><a href="${escapeAttr(path)}">Read the résumé text</a></p>
         `;
         return;
     }
 
     container.innerHTML = `
-        <h1 id="top">Atlas You｜游毓堂</h1>
-        <p>
-            目前首頁會讀取 <code>${escapeHtml(path)}</code>。
-            若直接用 <code>file://</code> 開啟，瀏覽器通常會阻擋讀取本機 Markdown。
-        </p>
-        <p>
-            請在專案資料夾執行 <code>python3 -m http.server 8000</code>，
-            再開啟 <code>http://127.0.0.1:8000/</code>。
-        </p>
-        <p><a href="${escapeAttr(path)}">直接查看 Markdown 檔</a></p>
+        <${headingTag}>暫時無法載入履歷</${headingTag}>
+        <p>請稍後重新整理頁面，或先閱讀下方的履歷文字版本。</p>
+        <p><a href="${escapeAttr(path)}">閱讀履歷文字版本</a></p>
     `;
 }
 
@@ -396,18 +427,34 @@ async function loadResume() {
     if (!container) return;
 
     try {
-        const markdown = await fetchText(RESUME_MD);
-        container.innerHTML = markdownToHtml(markdown);
-        enhanceResumeLayout(container);
+        if (container.dataset.resumePrerendered !== 'true') {
+            const markdown = await fetchText(RESUME_MD);
+            if (container.dataset.resumeMode === 'details') {
+                container.innerHTML = renderResumeDetails(markdown, document.documentElement.lang);
+            } else {
+                container.innerHTML = markdownToHtml(markdown);
+                enhanceResumeLayout(container);
+            }
+        }
+        document.querySelectorAll('[data-print]').forEach(button => {
+            button.hidden = false;
+        });
 
         if (window.location.hash) {
-            const id = decodeURIComponent(window.location.hash.slice(1));
+            let id = window.location.hash.slice(1);
+            try {
+                id = decodeURIComponent(id);
+            } catch {
+                // A malformed link fragment must not hide a successfully loaded résumé.
+            }
             const target = document.getElementById(id);
             if (target) target.scrollIntoView();
         }
     } catch (error) {
         console.error(error);
         renderLoadError(container, RESUME_MD);
+    } finally {
+        container.setAttribute('aria-busy', 'false');
     }
 }
 
@@ -439,11 +486,14 @@ async function displayBlogPost() {
     } catch (error) {
         console.error(error);
         titleElement.textContent = '文章未找到';
-        bodyElement.innerHTML = '<p>無法載入此文章。若在本機預覽，請改用本機伺服器開啟網站。</p>';
+        bodyElement.innerHTML = '<p>暫時無法載入此文章，請稍後重新整理頁面。</p>';
     }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('[data-print]').forEach(button => {
+        button.addEventListener('click', () => window.print());
+    });
     loadResume();
     displayBlogPost();
 });

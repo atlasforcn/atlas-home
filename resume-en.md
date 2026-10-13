@@ -16,25 +16,6 @@ At the Taiwan Space Agency (formerly NSPO), worked on CubeSat programs with resp
 
 Founded Starwish Technology to develop projects in satellite technology, education services, and the space industry. Also involved in HITCON CMT, SITCON, Hsinchu youth advisory work, international exchange, and digital resilience training.
 
-## Projects & Research Directions
-
-### ONGLAISAT
-
-**From 6U embedded-system mode design to an Earth-observation mission in orbit.**
-
-**My contribution:** Developed the 6U CubeSat embedded-system mode design as a university project, covering state machines, operating modes, functional management, requirements clarification, and program management. The project later evolved into ONGLAISAT.
-
-**Mission results:** Jointly developed by TASA, the University of Tokyo, and ArkEdge Space, ONGLAISAT achieved 2.44-meter ground resolution on a 6U platform and conducted more than 100 imaging operations over approximately two months after commissioning. [Mission technical results](https://sites.google.com/aiaa-smstc.org/moty/2026-mission-of-the-year-finalists)
-
-**Team recognition:** The ONGLAISAT mission received the **2026 AIAA Small Satellite Mission of the Year Award** for its on-orbit achievements in 2025. [Official award announcement](https://arkedgespace.com/en/news/2026-08-28_ssmoty)
-
-### Other Projects & Research
-
-- UMAL: Universal Mission Abstraction Layer｜Earth-observation mission abstraction layer｜Connects event requirements, mission scheduling, coordination, and data retrieval; submitted to a German space start-up competition.
-- Workshop Instructor — Digital Resilience and Cybersecurity in Eswatini｜English-language instruction｜Served as an instructor in Eswatini, delivering a five-day digital resilience and cybersecurity workshop with six sessions taught in English, covering cybersecurity, communications security, and anti-fraud awareness.
-- G-9-2: Digital Resilience × Youth Action｜Ministry of Education Youth Overseas Dream Fund｜Completed field observation in France and submitted a cybersecurity governance report.
-- Cross-disciplinary projects｜Smart IoT greenhouse, real-time earthquake disaster reporting, and local culture promotion｜Also includes analysis projects in financial machine learning, biotechnology, and IoT.
-
 ## Work Experience
 
 - 2022.12–2026.06｜Taiwan Space Agency (formerly NSPO)｜Technical program manager, CubeSat Program Office｜Owned mission schedules, lifecycle planning, technical discussions, and cross-team coordination.
@@ -65,16 +46,27 @@ Founded Starwish Technology to develop projects in satellite technology, educati
 - 2024｜ISPAC｜Conference advisor｜Supported student rocket propulsion, standardization, and research presentations.
 - 2022–2025｜Hsinchu City Youth Affairs Committee｜Committee member, second and third terms｜Contributed policy recommendations on sustainability, technology policy, and youth participation.
 - 2021–2022｜NYCU Student Association Chiao Tung Campus｜President｜Led orientation materials, club fair, anniversary concert, and Meichu esports programming.
-- 2021｜9th SITCON｜General coordinator｜Led event decisions; moved the event online during the pandemic and reached more than 24,000 views.
+- 2021｜9th SITCON｜General coordinator｜Led event decisions, overall planning, and team coordination.
 - 2019–2020｜NCTU Student Parliament｜Student representative｜Represented students on university committees and raised student concerns with the administration.
 - 2016｜SUNY Stony Brook｜International student ambassador and Chinese student events coordinator｜Helped international students adapt to campus and built a communications network for incoming Chinese-speaking students.
 - 2015–2016｜Bellevue College｜International student ambassador and treasurer of the Asian Pacific Student Association｜Supported events, Chinese interpretation, and financial administration.
 
+## Projects & Research Directions
+
+### 6U CubeSat Embedded-System University Project
+
+**My contribution:** Developed the 6U CubeSat embedded-system mode design as a university project, covering state machines, operating modes, functional management, requirements clarification, and program management.
+
+**Subsequent development:** I participated in the university project at that stage. The project later became ONGLAISAT, developed further by other professors over the following years. The mission received the 2026 AIAA Small Satellite Mission of the Year Award. [Official award announcement](https://arkedgespace.com/en/news/2026-08-28_ssmoty)
+
+### Other Projects & Research
+
+- UMAL: Universal Mission Abstraction Layer｜Earth-observation mission abstraction layer｜Connects event requirements, mission scheduling, coordination, and data retrieval; submitted to a German space start-up competition.
+- Workshop Instructor — Digital Resilience and Cybersecurity in Eswatini｜English-language instruction｜Served as an instructor in Eswatini, delivering a five-day digital resilience and cybersecurity workshop with six sessions taught in English, covering cybersecurity, communications security, and anti-fraud awareness.
+- G-9-2: Digital Resilience × Youth Action｜Ministry of Education Youth Overseas Dream Fund｜Completed field observation in France and submitted a cybersecurity governance report.
+- Cross-disciplinary projects｜Smart IoT greenhouse, real-time earthquake disaster reporting, and local culture promotion｜Also includes analysis projects in financial machine learning, biotechnology, and IoT.
+
 ## Awards & Honors
-
-### Mission Team Recognition
-
-- 2026｜ONGLAISAT mission team｜AIAA Small Satellite Mission of the Year Award｜Contributed to the early 6U embedded-system mode design; [project and contribution](#onglaisat).
 
 ### Development, Space & Cross-Disciplinary Competitions
 
@@ -87,7 +79,7 @@ Founded Starwish Technology to develop projects in satellite technology, educati
 - 2022｜NASA Space Apps Challenge｜MediaTek Special Award｜Variable-star simulation and observation project.
 - 2021｜iCASE CubeSat Design Competition｜Champion｜CubeSat mission design for gravity-field exploration.
 - 2020｜NASA Space Apps Challenge｜Women in Space Award｜Mars communications and environmental exploration game.
-- 2019｜International Genetically Engineered Machine Competition｜Gold medal｜E.Phoenix self-destructing-cell radiation detection mechanism.
+- 2019｜International Genetically Engineered Machine Competition (iGEM)｜Team gold medal｜E.Phoenix self-destructing-cell radiation detection mechanism. [Official medal results](https://competition.igem.org/results/2019?tab=medals)
 - 2019｜AIoT Competition｜Second place and Outstanding Presentation Award｜RFID smart-parking bollard platform.
 - 2019｜Chunghwa Telecom Meichu Hackathon｜Third place｜Information platform for wearable home-care devices.
 - 2019｜NASA Space Apps Challenge｜Yuze Optoelectronics Special Award｜James Webb Space Telescope management game.
@@ -103,6 +95,7 @@ Founded Starwish Technology to develop projects in satellite technology, educati
 
 ## Publications & Research
 
+- 2021｜iCASE poster paper｜Co-author｜*Micro-Gravity Space Outreach and Experiment Project Promotion*, describing how hands-on microgravity experiment simulations can be used for space-science outreach.
 - 2022｜AIED｜Preliminary Design of an AI Service to Assist Self-regulated Learning by Edge Computing｜Third author; LNCS pp. 577–581, DOI: [10.1007/978-3-031-11647-6_119](https://doi.org/10.1007/978-3-031-11647-6_119).
 
 ## Education
