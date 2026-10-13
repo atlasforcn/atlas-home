@@ -59,7 +59,25 @@ node scripts/build-resume.mjs --check
 
 網站地圖：https://atlasforcn.github.io/atlas-home/sitemap.xml
 
-可在 Google Search Console 新增網址前置字元資源 `https://atlasforcn.github.io/atlas-home/`、驗證擁有權後提交網站地圖與要求索引。網站設定與提交不保證 Google 收錄、收錄時間或搜尋排名。GitHub Pages 專案位於子路徑，`robots.txt` 只在網域根目錄有效，因此本專案不放置無效的子目錄 robots 檔案。
+Google Search Console 網址前置字元資源 `https://atlasforcn.github.io/atlas-home/` 已透過首頁 meta tag 驗證；維護時請保留驗證標籤。2026-10-13 檢查時中文首頁已編入索引，英文首頁已通過線上測試並提交索引要求；網站地圖雖已提交，報表仍顯示「無法擷取」，尚待確認後續處理結果。已收錄不表示姓名搜尋一定顯示，也不保證排名。
+
+人物資料以同一個 `Person.@id` 串連兩種語言，`alternateName` 列出實際使用的「游毓堂」、「Atlas」與 GitHub 帳號「atlasforcn」。簡介與可見內容一致，`sameAs` 僅列本人帳號；活動團隊頁保留為經歷證據，不當成個人帳號。首頁提供可見的 GitHub 連結與 `rel="me"`；這些設定表達身分關聯，不代表 Google 排名加分保證。
+
+語言切換與履歷返回首頁的連結直接指向 canonical 路徑。網站地圖的 `lastmod` 記錄實際內容或結構化資料的重要更新日期，不要每次建置自動改成當天。`theme-preview.html` 是設計用頁面，設為 `noindex`。
+
+GitHub Pages 專案位於子路徑，`robots.txt` 只在網域根目錄有效，因此本專案不放置無效的子目錄 robots 檔案。Google 的網站名稱功能不支援子目錄，所以不為了這個功能增加 `WebSite` 標記。Google 不使用 `meta keywords` 進行索引或排名，也不加入隱藏關鍵字。
+
+### Personal-site comparison — 2026-10-13
+
+直接檢查官方首頁 HTML；以下是實作觀察，不能用來判定其搜尋排名的原因。
+
+| 網站 | 本次觀察 | 採用的原則 |
+| --- | --- | --- |
+| [Andrej Karpathy](https://karpathy.ai/) | 姓名 title 與 h1、清楚的簡介及本人帳號連結；首頁未見 description 或 JSON-LD。 | 可見內容與真實經歷比增加標籤數量重要。 |
+| [Derek Sivers](https://sive.rs/) | 有 description、canonical、Person / WebSite JSON-LD，並以 sameAs 與 rel=me 連到本人帳號。 | 用人物結構化資料連結可確認的身分，避免直接照抄獨立網域的設定。 |
+| [Simon Willison](https://simonwillison.net/about/) | 首頁提供 canonical、author、rel=me 與 About 入口；About 有清楚的簡介和社群帳號。 | 讓讀者與搜尋引擎都能找到一致的姓名、簡介和帳號。 |
+
+維護依據：[Google ProfilePage](https://developers.google.com/search/docs/appearance/structured-data/profile-page)、[支援的 meta tags](https://developers.google.com/search/docs/crawling-indexing/special-tags)、[Sitemap 與 lastmod](https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap)、[網站名稱的適用範圍](https://developers.google.com/search/docs/appearance/site-names)。
 
 ## Design references
 

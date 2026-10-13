@@ -2,12 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://atlasforcn.github.io/atlas-home/</loc>
+    <lastmod>2026-10-13</lastmod>
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://atlasforcn.github.io/atlas-home/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://atlasforcn.github.io/atlas-home/en/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://atlasforcn.github.io/atlas-home/" />
   </url>
   <url>
     <loc>https://atlasforcn.github.io/atlas-home/en/</loc>
+    <lastmod>2026-10-13</lastmod>
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://atlasforcn.github.io/atlas-home/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://atlasforcn.github.io/atlas-home/en/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://atlasforcn.github.io/atlas-home/" />
